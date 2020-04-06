@@ -5,7 +5,7 @@ var axios = require('axios').default;
 /* GET home page. */
 router.get('/', function (req, res, next) {
     if (req.query.event === 'sendmsg') {
-        let { message } = req.body;
+        let { message } = req.query.message;
         replyMessage(req.query.fromuid);
     }
     res.sendStatus(200);
