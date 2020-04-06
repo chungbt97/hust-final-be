@@ -10,12 +10,17 @@ var zaloConfig = {
 var ZOAClient = new ZaloOA(zaloConfig);
 
 /* GET home page. */
-router.post('/', function (req, res, next) {
+router.get('/', function (req, res, next) {
     console.log(req.query);
     if (req.body.event === 'sendmsg') {
         let { message } = req.body;
         replyMessage(req.query.fromid);
     }
+    res.sendStatus(200);
+});
+
+router.post('/', function (req, res, next) {
+    console.log(req.query);
     res.sendStatus(200);
 });
 
