@@ -30,7 +30,7 @@ async function replyMessage(uid) {
             },
         },
         url:
-            'https://openapi.zalo.me/v2.0/oa/message?access_token=2JItFgheloqDEx4yhkoyA0Gyipcdz-TLPrQp897flpDdNjL3cOcLBJ8abLcGfiKJG16HKP6-opbeOgnAZSRQ6tDBf6gi-kW92aM4RVdXqpGqI8WcujV7Dof0g4R0pDGK21cvOUsMvHDFEkzZf-sm5tHkuts3tBzjVbZs9g7JWrzoSuyRqlFJIWSdlItcizey81o6LjwhyaCTEuyblRgFKK4SZXMYoFbENMci3RtUzq9PIBOvcUBDK2PLiZdr_S1CDqsr9FMTpb8UA8SQpuJsV9BbE26e_xmg',
+            'https://openapi.zalo.me/v2.0/oa/message?access_token=JXa9TH455GjA5Wzt5G4M3aCH3N8S6X94CL9dHYiI1MapKLeG3mS_4m1qGpql12Gr9rjXC3yrTImtOpm2QmDH87HX9I1OT4q-1XSk7HXhL0GV30WIG6Hc2dOL9JTyG3aOMLTaDayr0IvGT1XLU042RtnBGcvx0YbpHMfWNLmz2Nz7TNnPVcDaRNCf41ShT7qQTISzE514K39NLICDIKT9T58wI75nPr5kL1DCJGqR9L023MXMFta7Jc4tNMz1IZ8JMWnLAbjGA09dJKf-TMubB4mJ4XOC',
     };
     await axios(options)
         .then(function (response) {
@@ -43,10 +43,5 @@ async function replyMessage(uid) {
         });
 }
 
-router.get('/token', function (req, res, next) {
-    console.log(req.query);
-    console.log(req.body.json());
-    res.sendStatus(200);
-});
 
 module.exports = router;
