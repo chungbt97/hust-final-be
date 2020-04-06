@@ -34,7 +34,7 @@ db.once('open', function() {
 
 
 // set up router
-app.use('/bots', botsRoute);
+app.use('/', botsRoute);
 app.use('/webhook', zaloRoute);
 
 

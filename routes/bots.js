@@ -4,11 +4,7 @@ let Bot = require('../models/bots');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    Bot.find({ deleteFlag: false }, function (err, bots) {
-        if (err) {
-            res.status(400)
-        }
-    });
+   res.send('Home page');
 });
 
 module.exports = router;
