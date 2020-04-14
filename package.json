@@ -23,16 +23,22 @@
     "dependencies": {
         "assert": "^2.0.0",
         "axios": "^0.19.2",
+        "body-parser": "^1.19.0",
         "cookie-parser": "~1.4.4",
+        "cors": "^2.8.5",
         "debug": "~2.6.9",
         "dotenv": "^8.2.0",
         "express": "~4.16.1",
+        "express-validator": "^6.4.0",
         "formidable": "^1.2.2",
         "http-errors": "~1.6.3",
+        "jsonwebtoken": "^8.5.1",
+        "md5": "^2.2.1",
         "mongoose": "^5.9.7",
         "morgan": "~1.9.1",
         "nodemon": "^2.0.2",
         "pm2": "^4.2.3",
+        "snakecase-keys": "^3.1.2",
         "zalo-sdk": "^2.0.4"
     }
 }
