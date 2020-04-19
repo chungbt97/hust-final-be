@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var axios = require('axios').default;
-
+var blockController = require('../controllers/BlockController');
+const auth = require('../middlewares/auth');
+const asyncMiddleware = require('../middlewares/async');
 /* GET home page. */
 router.get('/', function (req, res, next) {
     if (req.query.event === 'sendmsg') {
@@ -17,7 +19,7 @@ router.post('/', function (req, res, next) {
 });
 
 function replyMessage(uid) {
-    console.log(uid)
+    console.log(uid);
     const options = {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -30,7 +32,7 @@ function replyMessage(uid) {
             },
         },
         url:
-            'https://openapi.zalo.me/v2.0/oa/message?access_token=JXa9TH455GjA5Wzt5G4M3aCH3N8S6X94CL9dHYiI1MapKLeG3mS_4m1qGpql12Gr9rjXC3yrTImtOpm2QmDH87HX9I1OT4q-1XSk7HXhL0GV30WIG6Hc2dOL9JTyG3aOMLTaDayr0IvGT1XLU042RtnBGcvx0YbpHMfWNLmz2Nz7TNnPVcDaRNCf41ShT7qQTISzE514K39NLICDIKT9T58wI75nPr5kL1DCJGqR9L023MXMFta7Jc4tNMz1IZ8JMWnLAbjGA09dJKf-TMubB4mJ4XOC',
+            'https://openapi.zalo.me/v2.0/oa/message?access_token=hQXVTZR9a56ffrbqCisJLA2WMt4xrl4ftj5MS1tGxmJyta9TCl7lETpsMcKnnkiAoyn1RXVByXJ7vMLbFOdJG_MrRsCtrAGunRGHOGsXeX_Md6n4AB3O8zAdI4SlqkLc_zvAFo79_KJVf3eB9QhyUUMyJoiOfuGF-Qe3U0USk5YKhd8WIxx-MggCQn1YjVyo_8DZJ3wjps6db7O0IBZxGRMlKm0diFbj-OPyJpoHy0BylLP6CQhc1ws8NIL5kynSdRCA7d6RX7gfX4irRMAgMFyLDDwJLW',
     };
     axios(options)
         .then(function (response) {

@@ -1,26 +1,25 @@
 /**
  * Author: ChungBT
- * Bot model
+ * Element model
  */
 var mongoose = require('mongoose');
 var { ObjectId } = mongoose.Types;
-var Schema = mongoose.Schema;
-var BotSchema = new mongoose.Schema(
+var ElementSchema = new mongoose.Schema(
     {
         name: {
             type: String,
             required: true,
             trim: true,
         },
-        description: {
+        elements: {
             type: String,
+            enum: ['text', 'image', 'audio', 'video', 'template', 'question'],
+            default: 'text',
         },
-        keyApp: { type: String, trim: true },
-        tokenApp: { type: String, trim: true },
-        user_id: { type: ObjectId, ref: 'Account' },
+        block_id: { type: ObjectId, ref: 'Block' },
         deleteFlag: { type: Boolean, default: false },
     },
     { timestamps: true }
 );
-var Bot = mongoose.model('Bot', BotSchema);
-module.exports = Bot;
+var Element = mongoose.model('Element', ElementSchema);
+module.exports = Element;

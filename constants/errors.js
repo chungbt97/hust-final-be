@@ -17,4 +17,5 @@ module.exports = {
     ACCOUNT_ASSIGNED_APP: 1006,
     ACCOUNT_NOT_ASSIGNED_BOT: 1007,
     ACCOUNT_NOT_ASSIGNED_APP: 1008,
+    
   };

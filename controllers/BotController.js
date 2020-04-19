@@ -5,7 +5,7 @@
 const botService = require('../services/bot');
 
 const getAllBot = async (req, res) => {
-    let { userId } = req.params;
+    let userId = req.data.accountId;
     const bots = await botService.getAllBot(userId);
     return res.send({
         status: 200,
@@ -15,7 +15,7 @@ const getAllBot = async (req, res) => {
 };
 
 const addNewBot = async (req, res) => {
-    let { userId } = req.params;
+    let userId = req.data.accountId;
     let data = req.body;
     let newBot = await botService.addNewBot({
         userId,
@@ -29,7 +29,7 @@ const addNewBot = async (req, res) => {
 };
 
 const updateBot = async (req, res) => {
-    let { userId } = req.params;
+    let userId = req.data.accountId;
     let data = req.body;
     let oldBot = await botService.updateBot({
         userId,
@@ -43,8 +43,7 @@ const updateBot = async (req, res) => {
 };
 
 const deleteBot = async (req, res) => {
-    let { userId } = req.params;
-    let { botId } = req.query;
+    let { botId } = req.body;
     let oldBot = await botService.deleteBot({
         userId,
         botId,

@@ -12,36 +12,35 @@ const actionTypes = require('../constants/action');
 
 /* GET all chatbot */
 router.get(
-    '/:userId',
-    //auth,
+    '/',
+    auth,
     validateAction(actionTypes.GET_ALL_BOT),
     getValidationResult,
     asyncMiddleware(botController.getAllBot)
 );
 
 router.post(
-    '/:userId',
-    //auth,
+    '/',
+    auth,
     validateAction(actionTypes.ADD_NEW_BOT),
     getValidationResult,
     asyncMiddleware(botController.addNewBot)
 );
 
 router.put(
-    '/:userId',
-    //auth,
+    '/',
+    auth,
     validateAction(actionTypes.UPDATE_BOT),
     getValidationResult,
     asyncMiddleware(botController.updateBot)
 );
 
 router.delete(
-    '/:userId',
-    //auth,
+    '/',
+    auth,
     validateAction(actionTypes.DELETE_BOT),
     getValidationResult,
     asyncMiddleware(botController.deleteBot)
 );
-
 
 module.exports = router;

@@ -21,12 +21,13 @@ function generateAccessToken(accountId) {
 }
 
 async function verifyAccessToken(token) {
-    const data = jwt.verify(token, JWT_SECRET_KEY, function (err) {
+    const data = await jwt.verify(token, JWT_SECRET_KEY);
+    if (!data) throw new CustomError(errorCodes.UNAUTHORIZED);
+    let { accountId } = data;
+    let account = await AccountModel.findById(accountId);
+    if (!account) {
         throw new CustomError(errorCodes.UNAUTHORIZED);
-    });
-    const { accountId } = data;
-    const account = await AccountModel.findById(accountId);
-    if (!account) throw new CustomError(errorCodes.UNAUTHORIZED);
+    }
     return data;
 }
 module.exports = { generateAccessToken, verifyAccessToken };

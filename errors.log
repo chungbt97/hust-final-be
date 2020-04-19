@@ -1,0 +1,23 @@
+[2020-04-16 16:54:56] [[31merror[39m] Error: jwt expired
+    at D:\server-node-workspace\final_project_server\services\auth.js:25:24
+    at D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:152:16
+    at getSecret (D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:94:10)
+    at Object.verifyAccessToken (D:\server-node-workspace\final_project_server\services\auth.js:24:22)
+    at auth (D:\server-node-workspace\final_project_server\middlewares\auth.js:19:43)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:47:12)
+[2020-04-16 16:57:41] [[31merror[39m] ValidationError: Bot validation failed: name: Path `name` is required.
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2373:17
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\schematype.js:1099:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)

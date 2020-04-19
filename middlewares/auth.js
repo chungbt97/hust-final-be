@@ -17,10 +17,8 @@ async function auth(req, res, next) {
     if (tokenType !== 'Bearer') throw new Error(errorCodes.UNAUTHORIZED);
 
     const dataDecoded = await authService.verifyAccessToken(accessToken);
-
-    // In dataDecoded have Account
-    // const { account } = dataDecoded
-    req.data = { dataDecoded, accessToken };
+    const { accountId } = dataDecoded;
+    req.data = { dataDecoded, accessToken, accountId };
 
     return next();
 }

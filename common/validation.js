@@ -3,7 +3,7 @@
  * Validator request
  */
 
-const { body, validationResult, param, query } = require('express-validator');
+const { body, validationResult, param } = require('express-validator');
 const actionTypes = require('../constants/action');
 const fieldName = require('../constants/fieldname');
 const errorsCodes = require('../constants/errors');
@@ -57,26 +57,100 @@ function validateAction(action) {
                     .trim(),
             ];
         }
-        case actionTypes.GET_ALL_BOT: {
-            return param('userId').exists().withMessage('User is not defined');
-        }
         case actionTypes.ADD_NEW_BOT: {
-            return param('userId').exists().withMessage('User is not defined');
-        }
-        case actionTypes.UPDATE_BOT: {
             return [
-                param('userId').exists().withMessage('User is not defined'),
-                body('id')
+                body('title')
                     .exists()
-                    .withMessage(`Bot is invalid`)
+                    .withMessage(`Bot name is required`)
                     .isString()
                     .trim(),
             ];
         }
+        case actionTypes.UPDATE_BOT: {
+            return body('title')
+                .exists()
+                .withMessage(`Bot name is required`)
+                .isString()
+                .trim();
+        }
         case actionTypes.DELETE_BOT: {
+            return body('botId').exists().withMessage('Bot id is invalid');
+        }
+        case actionTypes.GET_ALL_GROUP: {
+            return param('botId').exists().withMessage(`Bot is invalid`);
+        }
+        case actionTypes.ADD_NEW_GROUP: {
             return [
-                param('userId').exists().withMessage('User is not defined'),
-                query('botId').exists().withMessage('Bot id is invalid'),
+                param('botId').exists().withMessage(`Bot is invalid`),
+                body('name')
+                    .exists()
+                    .withMessage(`Name's group is invalid `)
+                    .isString()
+                    .trim(),
+            ];
+        }
+        case actionTypes.UPDATE_GROUP: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('groupId').exists().withMessage(`Group is invalid`),
+                body('name')
+                    .exists()
+                    .withMessage(`Name's group is invalid `)
+                    .isString()
+                    .trim(),
+            ];
+        }
+        case actionTypes.DELETE_GROUP: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('groupId').exists().withMessage(`Group is invalid`),
+            ];
+        }
+        case actionTypes.GET_CONTENT_BLOCK: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('groupId').exists().withMessage(`Group is invalid`),
+                param('blockId').exists().withMessage(`Block is invalid`),
+            ];
+        }
+        case actionTypes.ADD_NEW_BLOCK: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('groupId').exists().withMessage(`Group is invalid`),
+                body('name')
+                    .exists()
+                    .withMessage(`Name of Block is required`)
+                    .isString()
+                    .trim(),
+            ];
+        }
+        case actionTypes.TRANSFER_BLOCK: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('groupId').exists().withMessage(`Group is invalid`),
+                param('blockId').exists().withMessage(`Block is invalid`),
+                body('toGroupId')
+                    .exists()
+                    .withMessage(`Destination - group is required`),
+            ];
+        }
+        case actionTypes.UPDATE_NAME_BLOCK: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('groupId').exists().withMessage(`Group is invalid`),
+                param('blockId').exists().withMessage(`Block is invalid`),
+                body('name')
+                    .exists()
+                    .withMessage(`Name of Block is required`)
+                    .isString()
+                    .trim(),
+            ];
+        }
+        case actionTypes.DELETE_BLOCK: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('groupId').exists().withMessage(`Group is invalid`),
+                param('blockId').exists().withMessage(`Block is invalid`),
             ];
         }
         default: {

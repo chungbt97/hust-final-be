@@ -39,6 +39,7 @@
         "nodemon": "^2.0.2",
         "pm2": "^4.2.3",
         "snakecase-keys": "^3.1.2",
+        "winston": "^3.2.1",
         "zalo-sdk": "^2.0.4"
     }
 }

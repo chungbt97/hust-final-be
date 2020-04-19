@@ -4,6 +4,7 @@
  */
 const snakecaseKeys = require('snakecase-keys');
 const errorCodes = require('../constants/errors');
+const logger = require('./logger');
 
 /**
  * handle error be throwed 
@@ -15,6 +16,7 @@ const errorCodes = require('../constants/errors');
 function errorHandler(err, req, res, next) {
     let statusCode = err.code;
     let { message } = err;
+    logger.error(err);
     const code = err.code || errorCodes.INTERNAL_SERVER_ERROR;
     switch (code) {
         case errorCodes.BAD_REQUEST:

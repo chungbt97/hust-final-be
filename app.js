@@ -6,10 +6,8 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 require('dotenv').config();
 var errorHandler = require('./common/ErrorHandler');
-// Router
-var botRoute = require('./routes/bot');
-var zaloRoute = require('./routes/zalo');
-var accountRoute = require('./routes/account');
+//Router
+
 
 // create server
 var app = express();
@@ -24,8 +22,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //connect mongoose
-var mongoDB = `mongodb://127.0.0.1/${process.env.DB_NAME}`;
-mongoose.connect(mongoDB);
+var mongoDB = `mongodb://DESKTOP-R4QU744:27017/${process.env.DB_NAME}`;
+mongoose.connect(mongoDB, { replicaSet: 'rs' });
 var db = mongoose.connection;
 
 //Ràng buộc kết nối với sự kiện lỗi (để lấy ra thông báo khi có lỗi)
@@ -34,10 +32,10 @@ db.once('open', function () {
     console.log('Connect successfully');
 });
 
-// set up router
-app.use('/bots', botRoute);
-app.use('/webhook', zaloRoute);
-app.use('/account', accountRoute);
+require('./routes')(app);
+
+var zaloRoute =  require('./routes/zalo');
+app.use('/webhook/', zaloRoute);
 
 // error handler
 app.use(errorHandler);
