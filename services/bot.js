@@ -5,9 +5,9 @@
 
 const CustomError = require('../common/CustomError');
 const errorCodes = require('../constants/errors');
-const BotModel = require('../models/Bot');
-const AccountModel = require('../models/Account');
-const GroupModel = require('../models/Group');
+const BotModel = require('../models/bot');
+const AccountModel = require('../models/account');
+const GroupModel = require('../models/group');
 const queryUtils = require('../utils/query');
 const tableName = require('../constants/table');
 

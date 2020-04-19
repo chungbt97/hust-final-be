@@ -3,7 +3,7 @@
  * function service will handle logic
  */
 const md5 = require('md5');
-const AccountModel = require('../models/Account');
+const AccountModel = require('../models/account');
 const CustomError = require('../common/CustomError');
 const errorCodes = require('../constants/errors');
 const authService = require('../services/auth');

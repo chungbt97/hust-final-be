@@ -5,7 +5,7 @@
 const jwt = require('jsonwebtoken');
 const CustomError = require('../common/CustomError');
 const errorCodes = require('../constants/errors');
-const AccountModel = require('../models/Account');
+const AccountModel = require('../models/account');
 
 const { JWT_SECRET_KEY, JWT_EXPIRES_TIME } = process.env;
 

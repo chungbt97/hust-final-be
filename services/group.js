@@ -5,9 +5,9 @@
 
 const CustomError = require('../common/CustomError');
 const errorCodes = require('../constants/errors');
-const GroupModel = require('../models/Group');
-const BlockModel = require('../models/Block');
-const BotModel = require('../models/Bot');
+const GroupModel = require('../models/group');
+const BlockModel = require('../models/block');
+const BotModel = require('../models/bot');
 const blockService = require('./block');
 
 const getGroupOfBot = async (botId) => {

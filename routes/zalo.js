@@ -6,10 +6,11 @@ const auth = require('../middlewares/auth');
 const asyncMiddleware = require('../middlewares/async');
 /* GET home page. */
 router.get('/', function (req, res, next) {
+    console.log(req.query);
     if (req.query.event === 'sendmsg') {
         let { message } = req.query.message;
         let options = null;
-        switch (message.lowercase()) {
+        switch (message) {
             case 'image': {
                 options = {
                     method: 'POST',
@@ -57,7 +58,8 @@ router.get('/', function (req, res, next) {
                 };
                 break;
         }
-        replyMessage(req.query.fromuid, options);
+        //replyMessage(req.query.fromuid, options);
+        console.log(options);
     }
     res.sendStatus(200);
 });

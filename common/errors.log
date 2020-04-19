@@ -331,3 +331,37 @@
     at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
     at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
     at SendStream.error (D:\server-node-workspace\final_project_server\node_modules\serve-static\index.js:121:7)
+[2020-04-19 15:20:22] [[31merror[39m] TypeError: Cannot read property 'lowercase' of undefined
+    at D:\server-node-workspace\final_project_server\routes\zalo.js:12:25
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:317:13)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at SendStream.error (D:\server-node-workspace\final_project_server\node_modules\serve-static\index.js:121:7)
+[2020-04-19 15:20:50] [[31merror[39m] TypeError: Cannot read property 'lowercase' of undefined
+    at D:\server-node-workspace\final_project_server\routes\zalo.js:13:25
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:317:13)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at SendStream.error (D:\server-node-workspace\final_project_server\node_modules\serve-static\index.js:121:7)

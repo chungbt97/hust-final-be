@@ -3,7 +3,7 @@
  * Groups model
  */
 var commonMethod = require('../common/index');
-var BlockModel = require('./Block');
+var BlockModel = require('./block');
 var mongoose = require('mongoose');
 var { ObjectId } = mongoose.Types;
 var Schema = mongoose.Schema;

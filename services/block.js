@@ -1,7 +1,7 @@
 const CustomError = require('../common/CustomError');
 const errorCodes = require('../constants/errors');
-const GroupModel = require('../models/Group');
-const BlockModel = require('../models/Block');
+const GroupModel = require('../models/group');
+const BlockModel = require('../models/block');
 
 const getBlock = async (data) => {
     let { botId, groupId, blockId } = data;
