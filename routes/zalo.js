@@ -6,7 +6,14 @@ const auth = require('../middlewares/auth');
 const asyncMiddleware = require('../middlewares/async');
 /* GET home page. */
 router.get('/', function (req, res, next) {
+    res.sendStatus(200);
+});
+
+router.post('/', function (req, res, next) {
+    console.log('Post');
     console.log(req.query);
+    console.log('------------')
+    console.log(req.body);
     if (req.query.event === 'sendmsg') {
         let { message } = req.query.message;
         let options = null;
@@ -58,14 +65,9 @@ router.get('/', function (req, res, next) {
                 };
                 break;
         }
-        //replyMessage(req.query.fromuid, options);
+        replyMessage(req.query.fromuid, options);
         console.log(options);
     }
-    res.sendStatus(200);
-});
-
-router.post('/', function (req, res, next) {
-    console.log(req.query);
     res.sendStatus(200);
 });
 
