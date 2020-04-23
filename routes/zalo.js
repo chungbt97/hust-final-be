@@ -152,7 +152,6 @@ router.post('/', function (req, res, next) {
             };
 
         replyMessage(options);
-        console.log(options);
     }
     res.sendStatus(200);
 });
