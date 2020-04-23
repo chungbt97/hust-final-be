@@ -103,7 +103,7 @@ router.post('/', function (req, res, next) {
     let { event_name, sender, message } = req.body;
     let { id } = sender;
     if (event_name === 'user_send_text') {
-        let { text } = message.text;
+        let { text } = message;
         let options = null;
         console.log(text);
         if (text === 'image') {
