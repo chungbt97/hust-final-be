@@ -101,7 +101,6 @@ router.post('/', function (req, res, next) {
     // Sửa lại router có dạng : bots/:botId/webhook
     // Tạo ra file tạo ra các options cố định sắn!
     let { event_name, sender, message } = req.body;
-    console.log(req.body);
     let { id } = sender;
     if (event_name === 'user_send_text') {
         let { text } = message.text;
