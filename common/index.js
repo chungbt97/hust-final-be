@@ -1,14 +1,14 @@
 const createDefaultBlock = (groupId) => {
     return [
         {
-            name: 'Wellcome Message',
+            name: 'Wellcome Message ' + groupId,
             group_id: groupId,
         },
         {
-            name: 'Error Message',
+            name: 'Error Message ' + groupId,
             group_id: groupId,
         },
     ];
 };
 
-module.exports = {createDefaultBlock};
+module.exports = { createDefaultBlock };

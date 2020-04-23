@@ -365,3 +365,159 @@
     at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
     at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
     at SendStream.error (D:\server-node-workspace\final_project_server\node_modules\serve-static\index.js:121:7)
+[2020-04-19 15:18:29] [[31merror[39m] ReferenceError: id is not defined
+    at D:\server-node-workspace\final_project_server\routes\zalo.js:14:26
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:317:13)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at SendStream.error (D:\server-node-workspace\final_project_server\node_modules\serve-static\index.js:121:7)
+[2020-04-20 16:37:46] [[31merror[39m] TokenExpiredError: jwt expired
+    at D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:94:10)
+    at Object.verifyAccessToken (D:\server-node-workspace\final_project_server\services\auth.js:24:28)
+    at auth (D:\server-node-workspace\final_project_server\middlewares\auth.js:19:43)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+[2020-04-20 16:39:23] [[31merror[39m] ReferenceError: AccountModel is not defined
+    at Object.verifyAccessToken (D:\server-node-workspace\final_project_server\services\auth.js:27:19)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async auth (D:\server-node-workspace\final_project_server\middlewares\auth.js:19:25)
+[2020-04-20 16:59:45] [[31merror[39m] Error: Bot name is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:171:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-21 21:41:38] [[31merror[39m] ReferenceError: id is not defined
+    at D:\server-node-workspace\final_project_server\routes\zalo.js:43:26
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:317:13)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at SendStream.error (D:\server-node-workspace\final_project_server\node_modules\serve-static\index.js:121:7)
+[2020-04-22 19:31:25] [[31merror[39m] Error
+[2020-04-22 19:37:37] [[31merror[39m] TypeError: Cannot read property '_id' of undefined
+    at Object.addBlock (D:\server-node-workspace\final_project_server\services\block.js:29:40)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async addNewBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:22:19)
+[2020-04-22 19:38:31] [[31merror[39m] TypeError: Cannot read property '_id' of undefined
+    at Object.addBlock (D:\server-node-workspace\final_project_server\services\block.js:30:40)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async addNewBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:22:19)
+[2020-04-22 19:44:27] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.transferBlock (D:\server-node-workspace\final_project_server\services\block.js:76:31)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async transferBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:62:17)
+[2020-04-22 19:45:39] [[31merror[39m] Error
+[2020-04-22 19:46:20] [[31merror[39m] Error
+[2020-04-22 19:47:02] [[31merror[39m] Error: Name's group is invalid 
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:171:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-22 19:48:12] [[31merror[39m] TypeError: Cannot read property 'exec' of undefined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:12:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-22 19:48:58] [[31merror[39m] TypeError: BlockModel.findOne(...).populated is not a function
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:11:10)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-22 20:03:37] [[31merror[39m] Error
+[2020-04-22 20:04:42] [[31merror[39m] Error
+[2020-04-22 20:05:19] [[31merror[39m] Error
+[2020-04-22 20:05:50] [[31merror[39m] Error: Bot name is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:171:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-22 20:06:03] [[31merror[39m] Error
+[2020-04-23 07:39:39] [[31merror[39m] TokenExpiredError: jwt expired
+    at D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:94:10)
+    at Object.verifyAccessToken (D:\server-node-workspace\final_project_server\services\auth.js:24:28)
+    at auth (D:\server-node-workspace\final_project_server\middlewares\auth.js:19:43)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:354:14)
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+[2020-04-23 07:41:49] [[31merror[39m] TypeError: GroupModel.find(...).populate(...).execPopulate is not a function
+    at Object.getGroupOfBot (D:\server-node-workspace\final_project_server\services\group.js:23:10)
+    at getGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:6:37)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:176:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-23 07:42:24] [[31merror[39m] TypeError: GroupModel.findOne(...).populate(...).execPopulate is not a function
+    at Object.getGroupOfBot (D:\server-node-workspace\final_project_server\services\group.js:23:10)
+    at getGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:6:37)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:176:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-23 10:03:41] [[31merror[39m] ReferenceError: options is not defined
+    at D:\server-node-workspace\final_project_server\routes\zalo.js:85:22
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:317:13)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at SendStream.error (D:\server-node-workspace\final_project_server\node_modules\serve-static\index.js:121:7)

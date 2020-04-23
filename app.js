@@ -22,8 +22,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //connect mongoose
-var mongoDB = `mongodb://DESKTOP-R4QU744:27017/${process.env.DB_NAME}`;
-mongoose.connect(mongoDB, { replicaSet: 'rs' });
+var mongoDB = `mongodb://localhost:27017/${process.env.DB_NAME}`;
+mongoose.connect(mongoDB);
 var db = mongoose.connection;
 
 //Ràng buộc kết nối với sự kiện lỗi (để lấy ra thông báo khi có lỗi)

@@ -24,7 +24,9 @@ async function verifyAccessToken(token) {
     const data = await jwt.verify(token, JWT_SECRET_KEY);
     if (!data) throw new CustomError(errorCodes.UNAUTHORIZED);
     let { accountId } = data;
-    let account = await AccountModel.findById(accountId);
+    let account = await AccountModel.findOne({
+        _id: accountId,
+    });
     if (!account) {
         throw new CustomError(errorCodes.UNAUTHORIZED);
     }

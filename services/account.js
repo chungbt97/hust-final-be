@@ -15,19 +15,17 @@ const authService = require('../services/auth');
 const signUp = async (account) => {
     let { firstName, lastName, userEmail, password } = account;
     // check exits email
-    const acc = await AccountModel.findOne({ userEmail: userEmail });
+    const acc = await AccountModel.findOne({ userEmail });
     if (acc) throw new CustomError(errorCodes.ACCOUNT_EXISTS);
 
-    let newAccount = await AccountModel.create(
-        {
-            firstName,
-            lastName,
-            userEmail,
-            password,
-            createdAt: new Date().now,
-            updatedAt: new Date().now,
-        }
-    );
+    let newAccount = await AccountModel.create({
+        firstName,
+        lastName,
+        userEmail,
+        password,
+        createdAt: new Date().now,
+        updatedAt: new Date().now,
+    });
     return newAccount;
 };
 
@@ -38,9 +36,9 @@ const signUp = async (account) => {
  */
 const loginAccount = async ({ userEmail, password }) => {
     let accessToken = null;
-    const acc = await AccountModel.findOne({ userEmail }).select(
-        '_id, password'
-    );
+    const acc = await AccountModel.findOne({
+        userEmail,
+    }).select('_id, password');
     if (!acc) throw new CustomError(errorCodes.ACCOUNT_NOT_EXISTS);
     if (md5(password) === acc.password) {
         accessToken = authService.generateAccessToken(acc._id);

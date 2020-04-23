@@ -11,11 +11,24 @@ var ElementSchema = new mongoose.Schema(
             required: true,
             trim: true,
         },
-        elements: {
+        element_type: {
             type: String,
-            enum: ['text', 'image', 'audio', 'video', 'template', 'question'],
+            enum: [
+                'TEXT',
+                'IMAGE',
+                'AUDIO',
+                'VIDEO',
+                'LIST',
+                'QUESTION_DEFAULT',
+                'DATA_CUSTOM',
+            ],
             default: 'text',
         },
+        // giá trị default của mỗi con block
+        attachment_msg: [{ type: Object }],
+        text_msg: { type: String },
+        // Những element có type = DATA_CUSTOM 
+        attribute: { type: String },
         block_id: { type: ObjectId, ref: 'Block' },
         deleteFlag: { type: Boolean, default: false },
     },

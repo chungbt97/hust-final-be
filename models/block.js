@@ -13,7 +13,7 @@ var BlockSchema = new mongoose.Schema(
             trim: true,
         },
         group_id: { type: ObjectId, ref: 'Group' },
-        elements: [{ type: Schema.Types.ObjectId, ref: 'Element' }],
+        elements: [{ type: ObjectId, ref: 'Element' }],
         deleteFlag: { type: Boolean, default: false },
     },
     { timestamps: true }

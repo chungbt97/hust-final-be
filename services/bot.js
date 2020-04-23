@@ -12,7 +12,7 @@ const queryUtils = require('../utils/query');
 const tableName = require('../constants/table');
 
 const getAllBot = async (id) => {
-    const account = await AccountModel.findById(id);
+    const account = await AccountModel.findOne({ _id: id });
     if (!account) throw new CustomError(errorCodes.BAD_REQUEST);
     const bots = await BotModel.find({ user_id: id, deleteFlag: false });
     if (!bots) throw new CustomError(errorCodes.NOT_FOUND);
@@ -22,7 +22,9 @@ const getAllBot = async (id) => {
 const addNewBot = async (data) => {
     const { userId, bot } = data;
     const { title, description, keyApp, tokenApp } = bot;
-    const account = await AccountModel.findById(userId);
+    const account = await AccountModel.findOne({
+        _id: userId,
+    });
     if (!account) throw new CustomError(errorCodes.BAD_REQUEST);
     let newBot = await BotModel.create({
         name: title,
@@ -44,7 +46,9 @@ const addNewBot = async (data) => {
 const updateBot = async (data) => {
     const { userId, bot } = data;
     const { id, title, description, keyApp, tokenApp } = bot;
-    const account = await AccountModel.findById(userId);
+    const account = await AccountModel.findOne({
+        _id: userId,
+    });
     if (!account) throw new CustomError(errorCodes.BAD_REQUEST);
     const fieldUpdates = queryUtils.getFieldUpdates(tableName.BOT, {
         userId,
@@ -52,7 +56,7 @@ const updateBot = async (data) => {
     });
     console.log(fieldUpdates);
     let botEdit = await BotModel.findOneAndUpdate(
-        { _id: id },
+        { _id: id, deleteFlag: false },
         {
             $set: fieldUpdates,
         },
@@ -65,10 +69,12 @@ const updateBot = async (data) => {
 
 const deleteBot = async (data) => {
     const { userId, botId } = data;
-    const account = await AccountModel.findById(userId);
+    const account = await AccountModel.findOne({
+        _id: userId,
+    });
     if (!account) throw new CustomError(errorCodes.BAD_REQUEST);
-    let botDelete = await BotModel.findByIdAndUpdate(
-        botId,
+    let botDelete = await BotModel.findOneAndUpdate(
+        { _id: botId, deleteFlag: false },
         {
             $set: {
                 updatedAt: new Date().now,

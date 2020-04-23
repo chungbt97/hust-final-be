@@ -11,7 +11,7 @@ const BotModel = require('../models/bot');
 const blockService = require('./block');
 
 const getGroupOfBot = async (botId) => {
-    let groups = await GroupModel.find({
+    let groups = await GroupModel.findOne({
         bot_id: botId,
         deleteFlag: false,
     })
@@ -27,7 +27,7 @@ const getGroupOfBot = async (botId) => {
 
 const addNewGroupToBot = async (data) => {
     const { botId, name } = data;
-    const bot = await BotModel.findById(botId);
+    const bot = await BotModel.findOne({ _id: botId, deleteFlag: false });
     if (!bot) throw new CustomError(errorCodes.BAD_REQUEST);
     let newGroup = await GroupModel.create({
         name,
@@ -38,8 +38,8 @@ const addNewGroupToBot = async (data) => {
 
 const updateGroup = async (data) => {
     const { name, groupId, botId } = data;
-    const group = await GroupModel.findByIdAndUpdate(
-        { _id: groupId, bot_id: botId },
+    const group = await GroupModel.findOneAndUpdate(
+        { _id: groupId, bot_id: botId, deleteFlag: false },
         { name: name },
         {
             new: true,
