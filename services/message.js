@@ -6,98 +6,57 @@ const BotModel = require('../models/bot');
 const AttributeModel = require('../models/attribute');
 const blockCodes = require('../constants/block');
 const errorCodes = require('../constants/errors');
-const userZaloAPI = require('./user');
+const userService = require('./user');
 const { SESSION_TIME } = process.env;
+const { generatorSession, verifySesstion } = require('./user');
+const ZALO_ENDPOINT = 'https://openapi.zalo.me/v2.0/oa/message';
 
 const sendMessage = async (data) => {
-    const { event_name, senderId, messageText, messageId, app_id } = data;
+    const { event_name, messageText, user, bot } = data;
     let nextElement = [];
     if (event_name === 'user_send_text') {
-        let [bot, user] = await Promise.all([
-            BotModel.findOne({ app_id }),
-            UserModel.findOne({ user_app_id: senderId }),
-        ]);
-        let userZalo = await userZaloAPI.getInforUser({
-            userId: senderId,
-            bot,
-        });
-        if (!user) {
-            let session = generatorSession(senderId);
-            user = await UserModel.create({
-                name: userZalo.display_name,
-                user_app_id: userZalo.user_id,
-                current_session: session,
-            });
-        }
         nextElement = getNextElement({
             message: messageText,
-            userId: user._id,
-            session: user.current_session,
+            user,
             botId: bot._id,
         });
         let err = [];
         for (let i = 0; i < nextElement.length; i++) {
-            let options = getOptions(nextElement[i]);
+            let options = getOptions(nextElement[i], bot.tokenApp);
             breakFor = false;
-            await replyMessage(options).catch((error) => {
-                err.push(new CustomError('Lỗi gì đó'));
+            await callApiApp(options).catch((error) => {
+                err.push(new CustomError(errorCodes.INTERNAL_SERVER_ERROR));
                 breakFor = true;
             });
             if (breakFor) break;
         }
         if (err.length > 0) {
-            throw new CustomError('Lỗi gì đó');
-            axios.elmentMacDinh();
+            console.log('axios: mặc định');
+            throw new err[0]();
         }
     } else {
-        axios.elmentMacDinh(); // anh chị đợi em 1 chút nhân viên bên em sẽ liên lạc lại ngay
+        console.log('axios: mặc định');
+        //axios.elmentMacDinh(); // anh chị đợi em 1 chút nhân viên bên em sẽ liên lạc lại ngay
     }
 };
 
-const generatorSession = (senderId) => {
-    let startTimeMilis = Date.now();
-    let endTimeMilis = starTimeMilis + Number(SESSION_TIME);
-    return `${senderId}.${startTimeMilis}.${endTimeMilis}`;
-};
-
-const verifySesstion = async (session) => {
-    let [userId, startTimeMilis, endTimeMilis] = session.split('.');
-    let endDateTime = new Date(Number(endTimeMilis));
-    let nowDateTime = new Date();
-    if (nowDateTime < endDateTime) return true;
-    return false;
+const callApiApp = async (message) => {
+    return await axios(options);
 };
 
 const getNextElement = async (data) => {
-    let { message, userId, session, botId } = data;
-    let isInSession = verifySesstion(session);
+    let { message, user, botId } = data;
     let nextElementArr = [];
     let currenElementID = '';
-    if (!isInSession) {
-        let wellcomeBlock = await getDefaultBlockElement(
-            botId,
-            blockCodes.WELCOME
-        );
-        nextElementArr.push(wellcomeBlock);
-    } else {
-        let user = await UserModel.findById(userId);
+
+    let isInSession = verifySesstion(user.current_session);
+    if (isInSession) {
         let { element_id } = user;
         // Đang hỏi attribute
-        if (element_id) {
-            let element = await ElementModel.findById({
-                _id: element_id,
-                deleteFlag: false,
-            });
-            if (!element)
-                throw new CustomError(errorCodes.INTERNAL_SERVER_ERROR);
-            let block = await BlockModel.findOne({
-                _id: element.block_id,
-                deleteFlag: false,
-            })
-                .populate('elements')
-                .exec();
-            if (!block) throw new CustomError(errorCodes.INTERNAL_SERVER_ERROR);
-            let elements = block.elements;
+        if (element_id !== null) {
+            // get list element
+            let elements = getListElementsInBlock(element_id);
+            // lưu giá trị vào trong bảng attribute
             await addOrUpdateAttribute({
                 userId,
                 nameAttribute: element.attribute,
@@ -113,25 +72,20 @@ const getNextElement = async (data) => {
                 // vẫn chưa hỏi xong
                 if (
                     elements[indexElement + 1].element_type ===
-                    blockCodes.ELEMTYPE_DATA_CUSTOM
+                    blockCodes.TYPE_DATA_CUSTOM
                 ) {
                     nextElementArr.push(block.elements[index + 1]);
                     currenElementID = elements[index + 1]._id;
                 } else {
-                    // hỏi xong rồi mà vẫn còn element ở sau nữa
-                    // lôi hết ra và đưa vào arr
-                    elements.forEach((ele, i) => {
-                        if (i > indexElement) {
-                            nextElementArr.push(ele);
-                        }
+                    let restElement = getRestOfBlock({
+                        indexElement,
+                        elements,
                     });
+                    nextElementArr = restElement.nextElementArr;
+                    currenElementID = restElement.currenElementID;
                 }
             } else {
-                let blockDefault = await getDefaultBlockElement(
-                    botId,
-                    blockCodes.DEFAULT
-                );
-                nextElementArr.push(blockDefault);
+                // cảm ơn bạn đã cung câp thông tin bạn có muốn gì nữa không?
             }
         } else {
             // currenElementID là rỗng tức là gửi  nó hết element của 1 con block lúc nãy rồi
@@ -140,8 +94,11 @@ const getNextElement = async (data) => {
             let nextBlock = phanTichTheoRule(message);
             let dataResult = getElement(nextBlock);
             nextElementArr = dataResult.arrReturn;
+            currenElementID = dataResult.idReturn;
             // lấy ra hết element phải cho đến cái có elemtype == DataCusom;
         }
+    } else {
+        // welcome message
     }
     if (currenElementID !== '') {
         UserModel.findByIdAndUpdate(userId, {
@@ -151,44 +108,90 @@ const getNextElement = async (data) => {
     return nextElementArr;
 };
 
-const addOrUpdateAttribute = (data) => {
-    let { userId, nameAttribute, valueAttribute } = data;
-    let attr = AttributeModel.find({
-        user_id: userId,
-        name: nameAttribute,
+/**
+ * Lấy elemet còn lại trong block đến hết hoặc đến câu hỏi attribute kế tiếp
+ * @param {*} data
+ */
+const getRestOfBlock = (data) => {
+    let { indexElement, elements } = data;
+    let nextElementArr = [];
+    let currenElementID = null;
+    // hỏi xong rồi mà vẫn còn element ở sau nữa
+    // push đến khi gặp được chuỗi tiếp theo hoặc hết
+    for (let i = indexElement + 1; i < elements.length; i++) {
+        if (elements[i].element_type !== blockCodes.TYPE_DATA_CUSTOM) {
+            nextElementArr.push(elements[i]);
+        } else {
+            nextElementArr.push(elements[i]);
+            currenElementID = elements[i]._id;
+            break;
+        }
+    }
+
+    return { nextElementArr, currenElementID };
+};
+
+/**
+ * Từ 1 element lấy ra toàn bộ những Element có trong block
+ * @param {} element_id
+ */
+
+const getListElementsInBlock = async (element_id) => {
+    let element = await ElementModel.findById({
+        _id: element_id,
         deleteFlag: false,
     });
-    let attributeExists = false;
-    if (attr) {
-        AttributeModel.findOneAndUpdate(
-            { user_id: userId, name: nameAttribute },
-            { $set: { value: valueAttribute } }
-        );
-        attributeExists = true;
-    } else {
-        Attributes.create({ user_id: userId, name: attribute, value: message });
+    if (!element) throw new CustomError(errorCodes.INTERNAL_SERVER_ERROR);
+    let block = await BlockModel.findOne({
+        _id: element.block_id,
+        deleteFlag: false,
+    })
+        .populate('elements')
+        .exec();
+    if (!block) throw new CustomError(errorCodes.INTERNAL_SERVER_ERROR);
+    return block.elements;
+};
+
+/**
+ * Cập nhật giá trị mới cho bảng attribute
+ * @param {*} data
+ */
+const addOrUpdateAttribute = async (data) => {
+    let { userId, nameAttribute, valueAttribute } = data;
+    let attributeExists = true;
+    let attr = await AttributeModel.findOneAndUpdate(
+        { user_id: userId, name: nameAttribute },
+        { $set: { value: valueAttribute } },
+    );
+    if (!attr) {
+        await Attributes.create({
+            user_id: userId,
+            name: attribute,
+            value: valueAttribute,
+        });
+        attributeExists = false;
     }
     return { attr, attributeExists };
 };
 
+/**
+ * Lấy từ element đầu đến element cuối hoặc đến element có type = DATA_CUSTOM
+ * @param {*} block
+ */
 const getElement = (block) => {
-    let i = 0;
     let arrReturn = [];
-    let idReturn = '';
-    do {
-        arrReturn.push(block.elements[i]);
-        if (block.elements[i].element_type == blockCodes.ELEMTYPE_DATA_CUSTOM) {
-            idReturn = block.elements[i]._id;
+    let idReturn = null;
+    let elements = block.elements;
+    for (let i = 0; i < elements.length; i++) {
+        if (elements[i].element_type !== blockCodes.TYPE_DATA_CUSTOM) {
+            arrReturn.push(elements[i]);
+        } else {
+            arrReturn.push(elements[i]);
+            idReturn = elements[i]._id;
+            break;
         }
-    } while (
-        i < block.elements.length &&
-        block.elements[i].element_type !== blockCodes.ELEMTYPE_DATA_CUSTOM
-    );
+    }
     return { arrReturn, idReturn };
-};
-
-const phanTichTheoRule = async (message) => {
-    return null;
 };
 
 const getDefaultBlockElement = async (botId, code) => {
@@ -215,6 +218,41 @@ const getDefaultBlockElement = async (botId, code) => {
     return block.elements[0];
 };
 
-const getOptionsByElementType = (element_type, value) => {
-    
-}
+const getOptions = (element, token, userAppId) => {
+    if (!element.attachment_msg) {
+        return (options = {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            data: {
+                recipient: {
+                    user_id: userAppId,
+                },
+                message: {
+                    attachment: element.attachment_msg,
+                    text: element.text_msg,
+                },
+            },
+            url: `${ZALO_ENDPOINT}?access_token=${token}`,
+        });
+    } else {
+        return {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            data: {
+                recipient: {
+                    user_id: userAppId,
+                },
+                message: {
+                    text: element.text_msg,
+                },
+            },
+            url: `${ZALO_ENDPOINT}?access_token=${token}`,
+        };
+    }
+};
+
+const phanTichTheoRule = async (message) => {
+    return null;
+};
+
+module.exports = { sendMessage };

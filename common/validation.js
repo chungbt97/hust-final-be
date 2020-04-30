@@ -59,22 +59,45 @@ function validateAction(action) {
         }
         case actionTypes.ADD_NEW_BOT: {
             return [
-                body('title')
+                body('name')
                     .exists()
                     .withMessage(`Bot name is required`)
+                    .isString()
+                    .trim(),
+                body('tokenApp')
+                    .exists()
+                    .withMessage(`AccessToken is required`)
+                    .isString()
+                    .trim(),
+                body('appId')
+                    .exists()
+                    .withMessage(`App id is required`)
                     .isString()
                     .trim(),
             ];
         }
         case actionTypes.UPDATE_BOT: {
-            return body('title')
-                .exists()
-                .withMessage(`Bot name is required`)
-                .isString()
-                .trim();
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                body('name')
+                    .exists()
+                    .withMessage(`Bot name is required`)
+                    .isString()
+                    .trim(),
+                body('tokenApp')
+                    .exists()
+                    .withMessage(`AccessToken is required`)
+                    .isString()
+                    .trim(),
+                body('appId')
+                    .exists()
+                    .withMessage(`App id is required`)
+                    .isString()
+                    .trim(),
+            ];
         }
         case actionTypes.DELETE_BOT: {
-            return body('botId').exists().withMessage('Bot id is invalid');
+            return param('botId').exists().withMessage('Bot id is invalid');
         }
         case actionTypes.GET_ALL_GROUP: {
             return param('botId').exists().withMessage(`Bot is invalid`);
@@ -153,6 +176,67 @@ function validateAction(action) {
                 param('blockId').exists().withMessage(`Block is invalid`),
             ];
         }
+        case actionTypes.UPDATE_ELEMENTS_BLOCK: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('groupId').exists().withMessage(`Group is invalid`),
+                param('blockId').exists().withMessage(`Block is invalid`),
+                body('elementArr')
+                    .exists()
+                    .withMessage('Data of block is required'),
+            ];
+        }
+        case actionTypes.GET_ALL_RULE: {
+            return param('botId').exists().withMessage(`Bot is invalid`);
+        }
+        case actionTypes.ADD_NEW_RULE: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                body('keyword')
+                    .exists()
+                    .withMessage('Data of rule is required - keyword'),
+                body('blocks')
+                    .exists()
+                    .withMessage(
+                        'Data of rule is required - list blocks answer',
+                    ),
+                body('texts')
+                    .exists()
+                    .withMessage('Data of rule is required - list text answer'),
+            ];
+        }
+        case actionTypes.UPDATE_RULE: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('ruleId').exists().withMessage(`Rule is invalid`),
+                body('keyword')
+                    .exists()
+                    .withMessage('Data of rule is required - keyword'),
+                body('blocks')
+                    .exists()
+                    .withMessage(
+                        'Data of rule is required - list blocks answer',
+                    ),
+                body('texts')
+                    .exists()
+                    .withMessage('Data of rule is required - list text answer'),
+            ];
+        }
+        case actionTypes.DELETE_GROUP: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('ruleId').exists().withMessage(`Rule is invalid`),
+            ];
+        }
+
+        case actionTypes.CREATE_EMPTY_ELEMENT: {
+            return [
+                param('blockId').exists().withMessage(`Block is invalid`),
+                body('element_type')
+                    .exists()
+                    .withMessage(`This type have wrong something`),
+            ];
+        }
         default: {
             return [];
         }
@@ -170,7 +254,7 @@ function getValidationResult(req, res, next) {
     if (!errors.isEmpty()) {
         throw new CustomError(
             errorsCodes.BAD_REQUEST,
-            errors.array().shift().msg
+            errors.array().shift().msg,
         );
     }
     next();

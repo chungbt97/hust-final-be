@@ -15,7 +15,7 @@ const signUpAccount = async (req, res) => {
         userEmail,
         password,
     });
-    return res.send({ status: 201, message: 'Created', result: newAccount });
+    return res.send({ status: 201, message: 'Created', data: newAccount });
 };
 
 const loginAccount = async (req, res) => {

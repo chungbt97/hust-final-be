@@ -7,16 +7,17 @@ const errorCodes = require('../constants/errors');
 const logger = require('./logger');
 
 /**
- * handle error be throwed 
- * @param {Error} err 
- * @param {Request} req 
- * @param {Response} res 
- * @param {Next} next 
+ * handle error be throwed
+ * @param {Error} err
+ * @param {Request} req
+ * @param {Response} res
+ * @param {Next} next
  */
 function errorHandler(err, req, res, next) {
     let statusCode = err.code;
     let { message } = err;
     logger.error(err);
+    console.log(err);
     const code = err.code || errorCodes.INTERNAL_SERVER_ERROR;
     switch (code) {
         case errorCodes.BAD_REQUEST:
@@ -50,20 +51,7 @@ function errorHandler(err, req, res, next) {
             message = message || 'Something went wrong';
             statusCode = 200;
     }
-    return res.status(statusCode).send(
-        snakecaseKeys(
-            code
-                ? {
-                      status: 0,
-                      code,
-                      message,
-                  }
-                : {
-                      status: 0,
-                      message,
-                  }
-        )
-    );
+    return res.send({ message, status: statusCode });
 }
 
 module.exports = errorHandler;

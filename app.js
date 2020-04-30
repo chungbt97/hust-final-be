@@ -34,9 +34,6 @@ db.once('open', function () {
 
 require('./routes')(app);
 
-var zaloRoute =  require('./routes/zalo');
-app.use('/webhook/', zaloRoute);
-
 // error handler
 app.use(errorHandler);
 

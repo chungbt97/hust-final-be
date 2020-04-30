@@ -28,7 +28,7 @@ router.post(
 );
 
 router.put(
-    '/',
+    '/:botId',
     auth,
     validateAction(actionTypes.UPDATE_BOT),
     getValidationResult,
@@ -36,7 +36,7 @@ router.put(
 );
 
 router.delete(
-    '/',
+    '/:botId',
     auth,
     validateAction(actionTypes.DELETE_BOT),
     getValidationResult,

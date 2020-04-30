@@ -14,22 +14,24 @@ const tableName = require('../constants/table');
 const getAllBot = async (id) => {
     const account = await AccountModel.findOne({ _id: id });
     if (!account) throw new CustomError(errorCodes.BAD_REQUEST);
-    const bots = await BotModel.find({ user_id: id, deleteFlag: false });
+    const bots = await BotModel.find({ user_id: id, deleteFlag: false })
+        .populate('user_id')
+        .exec();
     if (!bots) throw new CustomError(errorCodes.NOT_FOUND);
     return bots;
 };
 
 const addNewBot = async (data) => {
     const { userId, bot } = data;
-    const { title, description, keyApp, tokenApp } = bot;
+    const { name, description, appId, tokenApp } = bot;
     const account = await AccountModel.findOne({
         _id: userId,
     });
     if (!account) throw new CustomError(errorCodes.BAD_REQUEST);
     let newBot = await BotModel.create({
-        name: title,
+        name,
         description,
-        keyApp,
+        app_id: appId,
         tokenApp,
         user_id: userId,
     });
@@ -44,8 +46,8 @@ const addNewBot = async (data) => {
 };
 
 const updateBot = async (data) => {
-    const { userId, bot } = data;
-    const { id, title, description, keyApp, tokenApp } = bot;
+    const { userId, bot, botId } = data;
+    const { _id, name, description, app_id, tokenApp } = bot;
     const account = await AccountModel.findOne({
         _id: userId,
     });
@@ -54,15 +56,14 @@ const updateBot = async (data) => {
         userId,
         bot,
     });
-    console.log(fieldUpdates);
     let botEdit = await BotModel.findOneAndUpdate(
-        { _id: id, deleteFlag: false },
+        { _id: botId, deleteFlag: false },
         {
             $set: fieldUpdates,
         },
         {
             new: true,
-        }
+        },
     );
     return botEdit;
 };
@@ -73,6 +74,7 @@ const deleteBot = async (data) => {
         _id: userId,
     });
     if (!account) throw new CustomError(errorCodes.BAD_REQUEST);
+    console.log(data);
     let botDelete = await BotModel.findOneAndUpdate(
         { _id: botId, deleteFlag: false },
         {
@@ -83,7 +85,7 @@ const deleteBot = async (data) => {
         },
         {
             new: true,
-        }
+        },
     );
     return botDelete;
 };

@@ -6,11 +6,6 @@ var mongoose = require('mongoose');
 var { ObjectId } = mongoose.Types;
 var ElementSchema = new mongoose.Schema(
     {
-        name: {
-            type: String,
-            required: true,
-            trim: true,
-        },
         element_type: {
             type: String,
             enum: [
@@ -19,13 +14,12 @@ var ElementSchema = new mongoose.Schema(
                 'AUDIO',
                 'VIDEO',
                 'LIST',
-                'QUESTION_DEFAULT',
                 'DATA_CUSTOM',
             ],
-            default: 'text',
+            default: 'TEXT',
         },
         // giá trị default của mỗi con block
-        attachment_msg: [{ type: Object }],
+        attachment_msg: { type: Object },
         text_msg: { type: String },
         // Những element có type = DATA_CUSTOM 
         attribute: { type: String },

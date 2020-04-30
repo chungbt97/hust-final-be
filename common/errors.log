@@ -521,3 +521,679 @@
     at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
     at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
     at SendStream.error (D:\server-node-workspace\final_project_server\node_modules\serve-static\index.js:121:7)
+[2020-04-26 08:26:59] [[31merror[39m] Error
+[2020-04-26 08:27:31] [[31merror[39m] Error
+[2020-04-26 08:34:10] [[31merror[39m] Error
+[2020-04-26 08:35:53] [[31merror[39m] Error
+[2020-04-26 08:36:36] [[31merror[39m] Error
+[2020-04-26 08:38:52] [[31merror[39m] Error
+[2020-04-26 08:39:28] [[31merror[39m] Error
+[2020-04-26 08:42:14] [[31merror[39m] Error
+[2020-04-26 08:44:47] [[31merror[39m] Error
+[2020-04-26 08:47:59] [[31merror[39m] Error
+[2020-04-26 08:50:16] [[31merror[39m] ValidationError: User validation failed: name: Path `name` is required.
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2373:17
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\schematype.js:1099:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+[2020-04-26 08:51:13] [[31merror[39m] ValidationError: User validation failed: name: Path `name` is required.
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2373:17
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\schematype.js:1099:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+[2020-04-26 08:52:02] [[31merror[39m] ValidationError: User validation failed: name: Path `name` is required.
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2373:17
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\schematype.js:1099:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+[2020-04-26 08:53:08] [[31merror[39m] TypeError: Cannot read property 'display_name' of undefined
+    at Object.findOrCreateUser (D:\server-node-workspace\final_project_server\services\user.js:24:34)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async Object.replyMessage (D:\server-node-workspace\final_project_server\services\zalo.js:12:18)
+    at async replyMessage (D:\server-node-workspace\final_project_server\controllers\ZaloController.js:15:26)
+[2020-04-26 21:31:30] [[31merror[39m] Error: Invalid email
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:223:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-26 21:34:27] [[31merror[39m] Error: Invalid email
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:223:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-26 21:34:29] [[31merror[39m] Error: Invalid email
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:223:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-26 21:36:43] [[31merror[39m] Error: Invalid email
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:223:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-26 21:48:00] [[31merror[39m] Error
+[2020-04-26 21:49:53] [[31merror[39m] Error
+[2020-04-26 22:23:17] [[31merror[39m] Error
+[2020-04-26 22:24:12] [[31merror[39m] Error
+[2020-04-26 22:25:02] [[31merror[39m] Error
+[2020-04-26 22:30:27] [[31merror[39m] Error
+[2020-04-26 22:31:37] [[31merror[39m] Error
+[2020-04-26 22:33:30] [[31merror[39m] Error
+[2020-04-26 22:34:50] [[31merror[39m] Error
+[2020-04-26 22:35:48] [[31merror[39m] Error
+[2020-04-26 23:16:17] [[31merror[39m] Error
+[2020-04-26 23:16:35] [[31merror[39m] Error
+[2020-04-26 23:16:53] [[31merror[39m] Error
+[2020-04-26 23:23:15] [[31merror[39m] Error
+[2020-04-26 23:24:06] [[31merror[39m] Error
+[2020-04-26 23:26:33] [[31merror[39m] Error
+[2020-04-26 23:28:22] [[31merror[39m] Error
+[2020-04-26 23:31:41] [[31merror[39m] Error
+[2020-04-26 23:34:14] [[31merror[39m] Error
+[2020-04-26 23:35:55] [[31merror[39m] Error
+[2020-04-26 23:38:15] [[31merror[39m] Error
+[2020-04-26 23:38:53] [[31merror[39m] Error
+[2020-04-26 23:40:18] [[31merror[39m] Error
+[2020-04-26 23:41:40] [[31merror[39m] Error
+[2020-04-26 23:49:30] [[31merror[39m] Error
+[2020-04-26 23:53:18] [[31merror[39m] Error
+[2020-04-26 23:54:44] [[31merror[39m] Error
+[2020-04-26 23:57:03] [[31merror[39m] Error
+[2020-04-27 00:29:13] [[31merror[39m] ValidationError: Account validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., userEmail: Path `userEmail` is required., password: Path `password` is required.
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2373:17
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\schematype.js:1099:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+[2020-04-27 00:31:28] [[31merror[39m] ValidationError: Account validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., userEmail: Path `userEmail` is required., password: Path `password` is required.
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2373:17
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\schematype.js:1099:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+[2020-04-27 00:32:32] [[31merror[39m] ValidationError: Account validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., userEmail: Path `userEmail` is required., password: Path `password` is required.
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2373:17
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\schematype.js:1099:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+[2020-04-27 00:36:26] [[31merror[39m] ValidationError: Account validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., userEmail: Path `userEmail` is required., password: Path `password` is required.
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2373:17
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\schematype.js:1099:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+[2020-04-27 00:39:02] [[31merror[39m] ValidationError: Account validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., userEmail: Path `userEmail` is required., password: Path `password` is required.
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2373:17
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\schematype.js:1099:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+[2020-04-27 00:41:17] [[31merror[39m] Error
+[2020-04-27 00:43:43] [[31merror[39m] Error: First name is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:223:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 00:44:09] [[31merror[39m] Error: First name is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:223:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 00:46:22] [[31merror[39m] Error
+[2020-04-27 00:52:13] [[31merror[39m] Error
+[2020-04-27 00:53:31] [[31merror[39m] Error
+[2020-04-27 00:54:32] [[31merror[39m] Error
+[2020-04-27 01:01:34] [[31merror[39m] Error
+[2020-04-27 01:08:58] [[31merror[39m] Error: Invalid email
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:223:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 01:21:48] [[31merror[39m] Error: Invalid email
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:223:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 01:26:04] [[31merror[39m] Error
+[2020-04-27 01:34:24] [[31merror[39m] Error: undefined is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:223:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 01:34:54] [[31merror[39m] Error: undefined is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:223:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 02:13:23] [[31merror[39m] Error
+[2020-04-27 02:13:51] [[31merror[39m] Error
+[2020-04-27 02:29:59] [[31merror[39m] Error: Bot name is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:233:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 02:31:30] [[31merror[39m] Error: Bot name is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:233:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 02:34:02] [[31merror[39m] Error: Bot name is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:233:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 02:50:15] [[31merror[39m] Error: Bot name is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 02:52:12] [[31merror[39m] Error: App id is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 03:00:30] [[31merror[39m] Error: Bot name is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 03:08:11] [[31merror[39m] ReferenceError: title is not defined
+    at Object.getFieldUpdates (D:\server-node-workspace\final_project_server\utils\query.js:11:43)
+    at Object.updateBot (D:\server-node-workspace\final_project_server\services\bot.js:55:37)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async updateBot (D:\server-node-workspace\final_project_server\controllers\BotController.js:35:18)
+[2020-04-27 03:18:36] [[31merror[39m] ReferenceError: userId is not defined
+    at deleteBot (D:\server-node-workspace\final_project_server\controllers\BotController.js:50:9)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 03:20:10] [[31merror[39m] ReferenceError: userId is not defined
+    at deleteBot (D:\server-node-workspace\final_project_server\controllers\BotController.js:50:9)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 03:21:35] [[31merror[39m] ReferenceError: userId is not defined
+    at deleteBot (D:\server-node-workspace\final_project_server\controllers\BotController.js:50:9)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 03:33:18] [[31merror[39m] Error
+[2020-04-27 03:33:57] [[31merror[39m] Error
+[2020-04-27 03:35:06] [[31merror[39m] Error
+[2020-04-27 03:35:35] [[31merror[39m] Error
+[2020-04-27 03:36:11] [[31merror[39m] Error
+[2020-04-27 03:36:38] [[31merror[39m] Error: Name's group is invalid 
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 03:36:57] [[31merror[39m] Error
+[2020-04-27 20:08:11] [[31merror[39m] TokenExpiredError: jwt expired
+    at D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:94:10)
+    at Object.verifyAccessToken (D:\server-node-workspace\final_project_server\services\auth.js:24:28)
+    at auth (D:\server-node-workspace\final_project_server\middlewares\auth.js:19:43)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:354:14)
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+[2020-04-27 20:09:47] [[31merror[39m] TokenExpiredError: jwt expired
+    at D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:152:21
+    at getSecret (D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (D:\server-node-workspace\final_project_server\node_modules\jsonwebtoken\verify.js:94:10)
+    at Object.verifyAccessToken (D:\server-node-workspace\final_project_server\services\auth.js:24:28)
+    at auth (D:\server-node-workspace\final_project_server\middlewares\auth.js:19:43)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:354:14)
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+[2020-04-27 20:10:57] [[31merror[39m] Error
+[2020-04-27 20:16:02] [[31merror[39m] Error
+[2020-04-27 20:16:21] [[31merror[39m] ReferenceError: data is not defined
+    at Object.verifyAccessToken (D:\server-node-workspace\final_project_server\services\auth.js:29:25)
+    at async auth (D:\server-node-workspace\final_project_server\middlewares\auth.js:19:25)
+[2020-04-27 20:16:32] [[31merror[39m] ReferenceError: data is not defined
+    at Object.verifyAccessToken (D:\server-node-workspace\final_project_server\services\auth.js:29:25)
+    at async auth (D:\server-node-workspace\final_project_server\middlewares\auth.js:19:25)
+[2020-04-27 20:17:09] [[31merror[39m] ReferenceError: data is not defined
+    at Object.verifyAccessToken (D:\server-node-workspace\final_project_server\services\auth.js:29:25)
+    at async auth (D:\server-node-workspace\final_project_server\middlewares\auth.js:19:25)
+[2020-04-27 20:22:13] [[31merror[39m] Error
+[2020-04-27 22:50:05] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "bot_id" for model "Group"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at Object.getGroupOfBot (D:\server-node-workspace\final_project_server\services\group.js:24:10)
+    at getGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:6:37)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 23:03:50] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "bot_id" for model "Group"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at Object.getGroupOfBot (D:\server-node-workspace\final_project_server\services\group.js:24:10)
+    at getGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:6:37)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 23:03:54] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "bot_id" for model "Group"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at Object.getGroupOfBot (D:\server-node-workspace\final_project_server\services\group.js:24:10)
+    at getGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:6:37)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 23:04:06] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "bot_id" for model "Group"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at Object.getGroupOfBot (D:\server-node-workspace\final_project_server\services\group.js:24:10)
+    at getGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:6:37)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 23:06:18] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "bot_id" for model "Group"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at Object.getGroupOfBot (D:\server-node-workspace\final_project_server\services\group.js:24:10)
+    at getGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:6:37)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-27 23:06:38] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "bot_id" for model "Group"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at Object.getGroupOfBot (D:\server-node-workspace\final_project_server\services\group.js:24:10)
+    at getGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:6:37)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 01:32:19] [[31merror[39m] TypeError: Assignment to constant variable.
+    at Object.updateGroup (D:\server-node-workspace\final_project_server\services\group.js:50:11)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async updateGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:31:17)
+[2020-04-28 03:41:11] [[31merror[39m] ValidationError: Group validation failed: name: Path `name` is required.
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2373:17
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\schematype.js:1099:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+[2020-04-28 04:19:04] [[31merror[39m] Error: Name's group is invalid 
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 05:27:57] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "bot_id" for model "Group"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at model.Query.Query.then (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4423:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 05:27:58] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "bot_id" for model "Group"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at model.Query.Query.then (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4423:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 19:45:53] [[31merror[39m] Error
+[2020-04-28 20:11:43] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "_id" for model "Group"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at model.Query.Query.then (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4423:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 20:12:37] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "_id" for model "Group"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at model.Query.Query.then (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4423:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:30:10] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:32:32] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:32:49] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:34:07] [[31merror[39m] ReferenceError: blockservice is not defined
+    at deleteBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:50:17)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:36:51] [[31merror[39m] ReferenceError: blockservice is not defined
+    at deleteBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:50:17)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:37:31] [[31merror[39m] ReferenceError: blockservice is not defined
+    at deleteBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:50:17)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:251:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:38:52] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 21:39:28] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:42:34] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:42:47] [[31merror[39m] Error
+[2020-04-28 21:44:31] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:45:47] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:247:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:47:17] [[31merror[39m] Error
+[2020-04-28 21:50:24] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:53:06] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 21:54:43] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 21:56:08] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:246:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 22:00:03] [[31merror[39m] Error: Name of Block is required
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:247:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-28 22:03:45] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 22:05:04] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 22:07:26] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 22:07:26] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 22:07:31] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 22:07:31] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 22:08:38] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 22:08:48] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 22:08:48] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-28 22:09:46] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:25:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-29 01:49:00] [[31merror[39m] Error
+[2020-04-29 01:50:20] [[31merror[39m] ReferenceError: errorsCodes is not defined
+    at Object.getBlock (D:\server-node-workspace\final_project_server\services\block.js:26:39)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getContentBlock (D:\server-node-workspace\final_project_server\controllers\BlockController.js:10:19)
+[2020-04-29 01:51:15] [[31merror[39m] Error
+[2020-04-29 01:52:36] [[31merror[39m] TypeError: blockService.uploadImage is not a function
+    at uploadImage (D:\server-node-workspace\final_project_server\controllers\BlockController.js:92:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Immediate.<anonymous> (D:\server-node-workspace\final_project_server\node_modules\multer\lib\make-middleware.js:53:37)
+    at processImmediate (internal/timers.js:458:21)
+[2020-04-29 02:03:25] [[31merror[39m] ReferenceError: Block is not defined
+    at Object.updateListElements (D:\server-node-workspace\final_project_server\services\block.js:128:19)
+    at updateElements (D:\server-node-workspace\final_project_server\controllers\BlockController.js:78:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:354:14)
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:317:13)
+[2020-04-29 02:04:03] [[31merror[39m] TypeError: fn is not a function
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:354:14)
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:317:13)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:335:12)
+[2020-04-29 02:04:36] [[31merror[39m] TypeError: path argument is required to res.sendFile
+    at ServerResponse.sendFile (D:\server-node-workspace\final_project_server\node_modules\express\lib\response.js:411:11)
+    at getImage (D:\server-node-workspace\final_project_server\controllers\BlockController.js:110:9)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:281:22
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:354:14)
+    at param (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\index.js:317:13)
+[2020-04-29 03:15:47] [[31merror[39m] Error
+[2020-04-29 04:22:44] [[31merror[39m] TypeError: blockService.creteEmptyElement is not a function
+    at createEmptyElement (D:\server-node-workspace\final_project_server\controllers\BlockController.js:79:32)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:260:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-04-29 05:53:18] [[31merror[39m] Error
+[2020-04-29 21:38:56] [[31merror[39m] Error
+[2020-04-29 22:57:11] [[31merror[39m] ReferenceError: path is not defined
+    at uploadImage (D:\server-node-workspace\final_project_server\controllers\BlockController.js:109:22)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Immediate.<anonymous> (D:\server-node-workspace\final_project_server\node_modules\multer\lib\make-middleware.js:53:37)
+    at processImmediate (internal/timers.js:458:21)
+[2020-04-29 22:57:28] [[31merror[39m] ReferenceError: path is not defined
+    at uploadImage (D:\server-node-workspace\final_project_server\controllers\BlockController.js:109:22)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Array.<anonymous> (D:\server-node-workspace\final_project_server\node_modules\multer\lib\make-middleware.js:53:37)
+    at listener (D:\server-node-workspace\final_project_server\node_modules\on-finished\index.js:169:15)
+    at onFinish (D:\server-node-workspace\final_project_server\node_modules\on-finished\index.js:100:5)
+    at callback (D:\server-node-workspace\final_project_server\node_modules\ee-first\index.js:55:10)
+    at IncomingMessage.onevent (D:\server-node-workspace\final_project_server\node_modules\ee-first\index.js:93:5)
+    at IncomingMessage.emit (events.js:323:22)
+    at endReadableNT (_stream_readable.js:1204:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[2020-04-30 00:18:59] [[31merror[39m] TypeError: Cannot read property 'originalname' of undefined
+    at Object.uploadImage (D:\server-node-workspace\final_project_server\services\block.js:177:33)
+    at uploadImage (D:\server-node-workspace\final_project_server\controllers\BlockController.js:107:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at Array.<anonymous> (D:\server-node-workspace\final_project_server\node_modules\multer\lib\make-middleware.js:53:37)
+    at listener (D:\server-node-workspace\final_project_server\node_modules\on-finished\index.js:169:15)
+    at onFinish (D:\server-node-workspace\final_project_server\node_modules\on-finished\index.js:100:5)
+    at callback (D:\server-node-workspace\final_project_server\node_modules\ee-first\index.js:55:10)
+    at IncomingMessage.onevent (D:\server-node-workspace\final_project_server\node_modules\ee-first\index.js:93:5)
+    at IncomingMessage.emit (events.js:323:22)
+    at endReadableNT (_stream_readable.js:1204:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[2020-04-30 07:46:24] [[31merror[39m] Error
+[2020-04-30 07:46:24] [[31merror[39m] Error

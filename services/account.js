@@ -13,6 +13,7 @@ const authService = require('../services/auth');
  * @param {*} account
  */
 const signUp = async (account) => {
+    console.log(account);
     let { firstName, lastName, userEmail, password } = account;
     // check exits email
     const acc = await AccountModel.findOne({ userEmail });

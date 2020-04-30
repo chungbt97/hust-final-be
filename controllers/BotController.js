@@ -31,9 +31,11 @@ const addNewBot = async (req, res) => {
 const updateBot = async (req, res) => {
     let userId = req.data.accountId;
     let data = req.body;
+    let { botId } = req.params;
     let oldBot = await botService.updateBot({
         userId,
         bot: data,
+        botId,
     });
     return res.send({
         status: 200,
@@ -43,7 +45,8 @@ const updateBot = async (req, res) => {
 };
 
 const deleteBot = async (req, res) => {
-    let { botId } = req.body;
+    let userId = req.data.accountId;
+    let { botId } = req.params;
     let oldBot = await botService.deleteBot({
         userId,
         botId,

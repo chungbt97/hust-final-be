@@ -7,13 +7,12 @@ const groupController = require('../controllers/GroupController');
 const blockController = require('../controllers/BlockController');
 const actionTypes = require('../constants/action');
 
-
 router.get(
     '/:botId/group',
     auth,
     validateAction(actionTypes.GET_ALL_GROUP),
     getValidationResult,
-    asyncMiddleware(groupController.getGroup)
+    asyncMiddleware(groupController.getGroup),
 );
 
 router.post(
@@ -21,7 +20,7 @@ router.post(
     auth,
     validateAction(actionTypes.ADD_NEW_GROUP),
     getValidationResult,
-    asyncMiddleware(groupController.addGroup)
+    asyncMiddleware(groupController.addGroup),
 );
 
 router.put(
@@ -29,15 +28,15 @@ router.put(
     auth,
     validateAction(actionTypes.UPDATE_GROUP),
     getValidationResult,
-    asyncMiddleware(groupController.updateGroup)
+    asyncMiddleware(groupController.updateGroup),
 );
 
 router.delete(
     '/:botId/group/:groupId',
     auth,
-    validateAction(actionTypes.GET_ALL_BOT),
+    validateAction(actionTypes.DELETE_BOT),
     getValidationResult,
-    asyncMiddleware(groupController.deleteGroup)
+    asyncMiddleware(groupController.deleteGroup),
 );
 
 module.exports = router;

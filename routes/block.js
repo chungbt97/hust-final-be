@@ -9,6 +9,8 @@ var blockController = require('../controllers/BlockController');
 var asyncMiddleware = require('../middlewares/async');
 var { validateAction, getValidationResult } = require('../common/validation');
 var auth = require('../middlewares/auth');
+var multer = require('multer');
+const imageUploader = multer({ dest: 'upload/' }); // (**)
 
 /* GET content of block */
 router.get(
@@ -16,7 +18,7 @@ router.get(
     auth,
     validateAction(actionTypes.GET_CONTENT_BLOCK),
     getValidationResult,
-    asyncMiddleware(blockController.getContentBlock)
+    asyncMiddleware(blockController.getContentBlock),
 );
 
 router.post(
@@ -24,7 +26,7 @@ router.post(
     auth,
     validateAction(actionTypes.ADD_NEW_BLOCK),
     getValidationResult,
-    asyncMiddleware(blockController.addNewBlock)
+    asyncMiddleware(blockController.addNewBlock),
 );
 
 router.put(
@@ -32,15 +34,15 @@ router.put(
     auth,
     validateAction(actionTypes.UPDATE_NAME_BLOCK),
     getValidationResult,
-    asyncMiddleware(blockController.updateNameBlock)
+    asyncMiddleware(blockController.updateNameBlock),
 );
 
 router.delete(
     '/:botId/group/:groupId/block/:blockId',
-    auth,
-    validateAction(actionTypes.DELETE_BLOCK),
-    getValidationResult,
-    asyncMiddleware(blockController.deleteBlock)
+     auth,
+     validateAction(actionTypes.DELETE_BLOCK),
+     getValidationResult,
+    asyncMiddleware(blockController.deleteBlock),
 );
 
 router.post(
@@ -48,8 +50,34 @@ router.post(
     auth,
     validateAction(actionTypes.TRANSFER_BLOCK),
     getValidationResult,
-    asyncMiddleware(blockController.transferBlock)
+    asyncMiddleware(blockController.transferBlock),
 );
 
+router.put(
+    '/:botId/group/:groupId/block/:blockId/elements',
+    auth,
+    validateAction(actionTypes.UPDATE_ELEMENTS_BLOCK),
+    getValidationResult,
+    asyncMiddleware(blockController.updateElements),
+);
+
+router.post(
+    '/image',
+    imageUploader.single('image'),
+    asyncMiddleware(blockController.uploadImage),
+);
+
+router.get(
+    '/image/:name',
+    asyncMiddleware(blockController.getImage),
+);
+
+router.post(
+    '/block/:blockId/element',
+    auth,
+    validateAction(actionTypes.CREATE_EMPTY_ELEMENT),
+    getValidationResult,
+    asyncMiddleware(blockController.createEmptyElement),
+);
 
 module.exports = router;
