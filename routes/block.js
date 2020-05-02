@@ -80,4 +80,12 @@ router.post(
     asyncMiddleware(blockController.createEmptyElement),
 );
 
+router.delete(
+    '/:botId/group/:groupId/block/:blockId/element/:elementId',
+    auth,
+    validateAction(actionTypes.DELETE_ELEMENT),
+    getValidationResult,
+    asyncMiddleware(blockController.deleteElement),
+);
+
 module.exports = router;

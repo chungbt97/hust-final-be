@@ -1,13 +1,15 @@
 const RuleService = require('../services/rule');
+const BlockService = require('../services/block');
 
 // lấy ra toàn bộ các Rule
 const getRule = async (req, res) => {
     const { botId } = req.params;
     const rules = await RuleService.getAllRulesOfBot({ botId });
+    const blocks = await BlockService.getAllBlocks(botId);
     return res.send({
         status: 200,
         message: 'Created Done',
-        data: rules,
+        data: { rules, blocks },
     });
 };
 

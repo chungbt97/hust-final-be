@@ -74,11 +74,11 @@ const transferBlock = async (req, res) => {
 
 const createEmptyElement = async (req, res) => {
     const { blockId } = req.params;
-    const { element_type } = req.body;
-
+    const { element_type, preId } = req.body;
     let data = await blockService.createEmptyElement({
         blockId,
         element_type,
+        preId,
     });
     return res.send({
         status: 201,
@@ -89,11 +89,11 @@ const createEmptyElement = async (req, res) => {
 
 const updateElements = async (req, res) => {
     const { botId, groupId, blockId } = req.params;
-    const { elmentArr, elementDeleteArr } = req.body;
+    const { elements, name } = req.body;
     let block = await blockService.updateListElements({
-        elmentArr,
+        elements,
         blockId,
-        elementDeleteArr,
+        name,
     });
     return res.send({
         status: 200,
@@ -124,6 +124,21 @@ const getImage = async (req, res) => {
     res.sendFile(path);
 };
 
+const deleteElement = async (req, res) => {
+    let { botId, groupId, blockId, elementId } = req.params;
+    let block = await blockService.deleteElement({
+        botId,
+        groupId,
+        blockId,
+        elementId,
+    });
+    return res.send({
+        status: 200,
+        message: 'Ok',
+        data: block,
+    });
+};
+
 module.exports = {
     getContentBlock,
     addNewBlock,
@@ -133,5 +148,6 @@ module.exports = {
     updateElements,
     uploadImage,
     getImage,
-    createEmptyElement
+    createEmptyElement,
+    deleteElement,
 };

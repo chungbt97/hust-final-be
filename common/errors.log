@@ -1197,3 +1197,129 @@
     at processTicksAndRejections (internal/process/task_queues.js:84:21)
 [2020-04-30 07:46:24] [[31merror[39m] Error
 [2020-04-30 07:46:24] [[31merror[39m] Error
+[2020-04-30 22:00:39] [[31merror[39m] Error
+[2020-05-01 02:00:26] [[31merror[39m] ValidationError: Element validation failed: element_type: Cast to String failed for value "{
+  TEXT_ELEMENT: 'TEXT',
+  VIDEO_ELEMENT: 'VIDEO',
+  AUDIO_ELEMENT: 'AUDIO',
+  IMAGE_ELEMENT: 'IMAGE',
+  OPTION_ELEMENT: 'LIST',
+  ATTR_ELEMENT: 'DATA_CUSTOM',
+  DEFAULT_TITLE: 'Title của card',
+  DEFAULT_SUBTITLE: 'Zalo API cung cấp các công cụ để bạn có thể kết nối thanh chóng và hiệu quả',
+  DEFAULT_IMAGE: 'https://2.bp.blogspot.com/-tn58C9YFcPU/XKaGfVW7OWI/AAAAAAAAE14/yoJhJ6zIp7k_JnnRNhLW808EQVJwKJx1QCKgBGAs/w0/invictus-gaming-kaisa-splash-art-lol-uhdpaper.com-4K-67.jpg',
+  OPTION_LINK: 'oa.open.url',
+  OPTION_SMS: 'oa.open.sms',
+  OPTION_PHONE: 'oa.open.phone',
+  TITLE_OPTION: 'ImageCover'
+}" at path "element_type"
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at model.$set (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:1232:12)
+    at model._handleIndex (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:972:14)
+    at model.$set (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:914:22)
+    at model.Document (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:136:12)
+    at model.Model (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:104:12)
+    at new model (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:4656:15)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3096:22
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3132:7
+    at Array.forEach (<anonymous>)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3131:15
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\helpers\promiseOrCallback.js:31:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\helpers\promiseOrCallback.js:30:10)
+    at Function.create (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3066:10)
+[2020-05-01 02:22:15] [[31merror[39m] TypeError: Assignment to constant variable.
+    at Object.createEmptyElement (D:\server-node-workspace\final_project_server\services\block.js:193:11)
+    at createEmptyElement (D:\server-node-workspace\final_project_server\controllers\BlockController.js:78:35)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:260:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-01 03:07:00] [[31merror[39m] TypeError: ElementModel.findByOneAndUpdate is not a function
+    at Object.deleteElement (D:\server-node-workspace\final_project_server\services\block.js:237:40)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async deleteElement (D:\server-node-workspace\final_project_server\controllers\BlockController.js:129:17)
+[2020-05-01 03:07:10] [[31merror[39m] TypeError: ElementModel.findByOneAndUpdate is not a function
+    at Object.deleteElement (D:\server-node-workspace\final_project_server\services\block.js:237:40)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async deleteElement (D:\server-node-workspace\final_project_server\controllers\BlockController.js:129:17)
+[2020-05-01 03:08:18] [[31merror[39m] TypeError: ElementModel.findByOneAndUpdate is not a function
+    at Object.deleteElement (D:\server-node-workspace\final_project_server\services\block.js:237:40)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async deleteElement (D:\server-node-workspace\final_project_server\controllers\BlockController.js:129:17)
+[2020-05-01 05:37:25] [[31merror[39m] ReferenceError: elementArr is not defined
+    at Object.updateListElements (D:\server-node-workspace\final_project_server\services\block.js:137:23)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async updateElements (D:\server-node-workspace\final_project_server\controllers\BlockController.js:94:17)
+[2020-05-01 06:01:27] [[31merror[39m] ReferenceError: newElment is not defined
+    at Object.createEmptyElement (D:\server-node-workspace\final_project_server\services\block.js:179:28)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async createEmptyElement (D:\server-node-workspace\final_project_server\controllers\BlockController.js:78:16)
+[2020-05-01 08:05:57] [[31merror[39m] Error
+[2020-05-01 08:38:13] [[31merror[39m] Error
+[2020-05-01 08:54:02] [[31merror[39m] Error
+[2020-05-01 08:54:02] [[31merror[39m] Error
+[2020-05-01 09:20:39] [[31merror[39m] Error
+[2020-05-02 01:39:58] [[31merror[39m] Error
+[2020-05-02 02:03:59] [[31merror[39m] Error
+[2020-05-02 03:02:17] [[31merror[39m] Error
+[2020-05-02 03:02:26] [[31merror[39m] Error
+[2020-05-02 05:24:24] [[31merror[39m] ValidationError: Rule validation failed: blocks: Cast to Array failed for value "[]" at path "blocks"
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at model.$set (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:1232:12)
+    at model._handleIndex (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:972:14)
+    at model.$set (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:914:22)
+    at model.Document (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:136:12)
+    at model.Model (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:104:12)
+    at new model (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:4656:15)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3096:22
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3132:7
+    at Array.forEach (<anonymous>)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3131:15
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\helpers\promiseOrCallback.js:31:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\helpers\promiseOrCallback.js:30:10)
+    at Function.create (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3066:10)
+[2020-05-02 05:25:29] [[31merror[39m] ValidationError: Rule validation failed: blocks: Cast to Array failed for value "" at path "blocks"
+    at new ValidationError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\validation.js:31:11)
+    at model.Document.invalidate (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:2551:32)
+    at model.$set (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:1232:12)
+    at model._handleIndex (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:972:14)
+    at model.$set (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:914:22)
+    at model.Document (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\document.js:136:12)
+    at model.Model (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:104:12)
+    at new model (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:4656:15)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3096:22
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3132:7
+    at Array.forEach (<anonymous>)
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3131:15
+    at D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\helpers\promiseOrCallback.js:31:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\helpers\promiseOrCallback.js:30:10)
+    at Function.create (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\model.js:3066:10)
+[2020-05-02 08:27:22] [[31merror[39m] ReferenceError: consle is not defined
+    at Object.getAllBlocks (D:\server-node-workspace\final_project_server\services\block.js:14:5)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getRule (D:\server-node-workspace\final_project_server\controllers\RuleController.js:8:20)
+[2020-05-02 11:03:30] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "_id" for model "Rule"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at model.Query.Query.then (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4423:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-02 11:05:10] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "_id" for model "Rule"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at model.Query.Query.then (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4423:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-02 11:07:30] [[31merror[39m] CastError: Cast to ObjectId failed for value "undefined" at path "_id" for model "Rule"
+    at new CastError (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\error\cast.js:29:11)
+    at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
+    at model.Query.Query.then (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4423:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)

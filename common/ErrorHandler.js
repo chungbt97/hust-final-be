@@ -49,7 +49,7 @@ function errorHandler(err, req, res, next) {
             break;
         default:
             message = message || 'Something went wrong';
-            statusCode = 200;
+            statusCode = 500;
     }
     return res.send({ message, status: statusCode });
 }

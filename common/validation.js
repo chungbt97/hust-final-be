@@ -181,9 +181,10 @@ function validateAction(action) {
                 param('botId').exists().withMessage(`Bot is invalid`),
                 param('groupId').exists().withMessage(`Group is invalid`),
                 param('blockId').exists().withMessage(`Block is invalid`),
-                body('elementArr')
+                body('elements')
                     .exists()
                     .withMessage('Data of block is required'),
+                body('name').exists().withMessage('Name of block is required'),
             ];
         }
         case actionTypes.GET_ALL_RULE: {
@@ -195,14 +196,11 @@ function validateAction(action) {
                 body('keyword')
                     .exists()
                     .withMessage('Data of rule is required - keyword'),
-                body('blocks')
-                    .exists()
-                    .withMessage(
-                        'Data of rule is required - list blocks answer',
-                    ),
-                body('texts')
-                    .exists()
-                    .withMessage('Data of rule is required - list text answer'),
+                // body('blocks')
+                //     .exists()
+                //     .withMessage(
+                //         'Data of rule is required - list blocks answer',
+                //     ),
             ];
         }
         case actionTypes.UPDATE_RULE: {
@@ -217,9 +215,7 @@ function validateAction(action) {
                     .withMessage(
                         'Data of rule is required - list blocks answer',
                     ),
-                body('texts')
-                    .exists()
-                    .withMessage('Data of rule is required - list text answer'),
+            
             ];
         }
         case actionTypes.DELETE_GROUP: {
@@ -235,6 +231,15 @@ function validateAction(action) {
                 body('element_type')
                     .exists()
                     .withMessage(`This type have wrong something`),
+            ];
+        }
+
+        case actionTypes.DELETE_ELEMENT: {
+            return [
+                param('botId').exists().withMessage(`Bot is invalid`),
+                param('groupId').exists().withMessage(`Group is invalid`),
+                param('blockId').exists().withMessage(`Block is invalid`),
+                param('elementId').exists().withMessage(`Element is invalid`),
             ];
         }
         default: {

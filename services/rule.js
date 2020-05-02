@@ -18,20 +18,26 @@ const getAllRulesOfBot = async (data) => {
 };
 
 const addNewRuleForBot = async (data) => {
-    const { botId, keyword, blocks, texts } = data;
+    const { botId, keyword, blocks } = data;
     const bot = await BotModel.findOne({ _id: botId, deleteFlag: false });
     if (!bot) throw new CustomError(errorCodes.BAD_REQUEST);
     let rule = await RuleModel.create({
         keyword,
         blocks,
-        texts,
         bot_id: botId,
     });
+    rule = rule
+        .populate({
+            path: 'blocks',
+            match: { deleteFlag: false },
+            select: '_id name',
+        })
+        .execPopulate();
     return rule;
 };
 
 const updateRuleOfBot = async (data) => {
-    const { botId, keyword, blocks, texts, ruleId } = data;
+    const { botId, keyword, blocks, ruleId } = data;
     const bot = await BotModel.findOne({ _id: botId, deleteFlag: false });
     if (!bot) throw new CustomError(errorCodes.BAD_REQUEST);
     let rule = await RuleModel.findOneAndUpdate(
@@ -39,10 +45,15 @@ const updateRuleOfBot = async (data) => {
         {
             keyword,
             blocks,
-            texts,
         },
         { new: true },
-    );
+    )
+        .populate({
+            path: 'blocks',
+            match: { deleteFlag: false },
+            select: '_id name',
+        })
+        .exec();
     return rule;
 };
 

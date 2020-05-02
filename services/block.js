@@ -3,8 +3,19 @@ const errorCodes = require('../constants/errors');
 const GroupModel = require('../models/group');
 const BlockModel = require('../models/block');
 const ElementModel = require('../models/element');
+const GroupService = require('./group');
 const fs = require('fs');
 const path = require('path');
+var mongoose = require('mongoose');
+
+const getAllBlocks = async (botId) => {
+    let groups = await GroupService.getGroupOfBot(botId);
+    let blocks = [];
+    groups.forEach((g) => {
+        blocks = [...blocks, ...g.blocks];
+    });
+    return blocks;
+};
 
 const getBlock = async (data) => {
     let { botId, groupId, blockId } = data;
@@ -125,51 +136,28 @@ const transferBlock = async (data) => {
 };
 
 const updateListElements = async (data) => {
-    const { elmentArr, blockId, elementDeleteArr } = data;
-    const block = await Block.findOne({ _id: blockId, deleteFlag: false });
+    const { elements, blockId, name } = data;
+    const block = await BlockModel.findOneAndUpdate(
+        { _id: blockId, deleteFlag: false },
+        { name: name },
+    );
     if (!block) throw new CustomError(errorCodes.BAD_REQUEST);
-    // add and update
-    for (let i = 0; i < elmentArr.length; i++) {
-        let element = elementArr[i];
-        if (element._id) {
-            let elementUpdate = await ElementModel.findOneandUpdate(
-                { _id: element._id, block_id: blockId },
-                {
-                    $set: {
-                        attachment_msg: element.attachment_msg,
-                        text_msg: element.text_msg,
-                        attribute: element.attribute,
-                    },
+    console.log(elements);
+    for (let i = 0; i < elements.length; i++) {
+        let element = elements[i];
+        let elementUpdate = await ElementModel.findByIdAndUpdate(
+            { _id: element._id },
+            {
+                $set: {
+                    attachment_msg: element.attachment_msg,
+                    text_msg: element.text_msg,
+                    attribute: element.attribute,
                 },
-                { new: true },
-            );
-            if (!elementUpdate) throw new CustomError(errorCodes.BAD_REQUEST);
-        } else {
-            let { attachment_msg, text_msg, element_type, attribute } = element;
-            let newElment = await ElementModel.create({
-                attachment_msg,
-                text_msg,
-                attribute,
-                element_type,
-                block_id: blockId,
-            });
-            let block = await BlockModel.findByIdAndUpdate(
-                blockId,
-                {
-                    $push: { elements: newElment._id },
-                },
-                { new: true },
-            );
-        }
-    }
-    // delete elment
-    if (elementDeleteArr.length > 0) {
-        for (let i = 0; i < elementDeleteArr.length; i++) {
-            let element = elementDeleteArr[i];
-            let e = await ElementModel.findByIdAndUpdate(element._id, {
-                deleteFlag: true,
-            });
-        }
+            },
+            { new: true },
+        );
+        console.log(elementUpdate);
+        if (!elementUpdate) throw new CustomError(errorCodes.BAD_REQUEST);
     }
 };
 
@@ -188,23 +176,61 @@ const getPath = (name) => {
 };
 
 const createEmptyElement = async (data) => {
-    const { blockId, element_type } = data;
-    let newElment = await ElementModel.create({
+    const { blockId, element_type, preId } = data;
+    let newElement = await ElementModel.create({
         element_type,
         block_id: blockId,
     });
-    if (!newElment) throw new CustomError(errorCodes.BAD_REQUEST);
-    let block = await BlockModel.findByIdAndUpdate(
+    if (!newElement) throw new CustomError(errorCodes.BAD_REQUEST);
+
+    let block = await BlockModel.findById(blockId);
+    let newArrElement = block.elements;
+    if (preId === null || preId === undefined) {
+        newArrElement.push(newElement._id);
+    } else {
+        let arr = [];
+        newArrElement.forEach((eleId) => {
+            arr.push(eleId);
+            let id = eleId.toString();
+            if (id === preId) {
+                arr.push(newElement._id);
+            }
+        });
+        newArrElement = arr;
+    }
+    block = await BlockModel.findByIdAndUpdate(
         blockId,
         {
-            $push: { elements: newElment._id },
+            elements: newArrElement,
         },
         { new: true },
     )
         .populate({ path: 'elements', match: { deleteFlag: false } })
         .exec();
+
     if (!block) throw new CustomError(errorCodes.BAD_REQUEST);
-    return { newElment, block };
+
+    return { newElement, block };
+};
+
+const deleteElement = async (data) => {
+    const { botId, groupId, blockId, elementId } = data;
+    const group = await GroupModel.find({
+        _id: groupId,
+        bot_id: botId,
+        deleteFlag: false,
+    });
+    if (!group) throw new CustomError(errorCodes.BAD_REQUEST);
+    const block = await BlockModel.findByIdAndUpdate(blockId, {
+        $pull: { elements: elementId },
+    });
+    const element = await ElementModel.findOneAndUpdate(
+        { _id: elementId, deleteFlag: false, block_id: blockId },
+        { deleteFlag: true },
+        { new: true },
+    );
+    if (!element) throw new CustomError(errorCodes.BAD_REQUEST);
+    return element;
 };
 
 module.exports = {
@@ -217,4 +243,6 @@ module.exports = {
     uploadImage,
     getPath,
     createEmptyElement,
+    deleteElement,
+    getAllBlocks,
 };
