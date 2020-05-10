@@ -7,7 +7,6 @@ const getFieldUpdates = (table, data) => {
         case tableName.BOT:
             const { userId, bot } = data;
             const { name, description, appId, tokenApp } = bot;
-            console.log(bot);
             fieldUpdates.user_id = userId;
             if (name) fieldUpdates.name = name;
             if (description) fieldUpdates.description = description;

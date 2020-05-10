@@ -1323,3 +1323,41 @@
     at model.Query.exec (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4331:21)
     at model.Query.Query.then (D:\server-node-workspace\final_project_server\node_modules\mongoose\lib\query.js:4423:15)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-04 08:48:21] [[31merror[39m] Error
+[2020-05-04 09:49:41] [[31merror[39m] Error
+[2020-05-04 18:50:33] [[31merror[39m] TypeError: Cannot read property 'display_name' of undefined
+    at Object.findOrCreateUser (D:\server-node-workspace\final_project_server\services\user.js:25:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async Object.replyMessage (D:\server-node-workspace\final_project_server\services\zalo.js:12:18)
+    at async replyMessage (D:\server-node-workspace\final_project_server\controllers\ZaloController.js:15:26)
+[2020-05-04 19:38:28] [[31merror[39m] Error
+[2020-05-06 03:29:51] [[31merror[39m] Error
+[2020-05-06 07:44:26] [[31merror[39m] Error: Data of rule is required - keyword
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:260:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-06 07:46:12] [[31merror[39m] Error: Data of rule is required - keyword
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:260:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-06 07:55:50] [[31merror[39m] Error: Data of rule is required - keyword
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:260:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-06 09:26:00] [[31merror[39m] Error: Data of rule is required - list blocks answer
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:260:15)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-06 16:25:30] [[31merror[39m] Error
+[2020-05-07 09:21:25] [[31merror[39m] Error
+[2020-05-09 08:25:35] [[31merror[39m] Error

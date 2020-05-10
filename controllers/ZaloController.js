@@ -17,6 +17,7 @@ const replyMessage = async (req, res) => {
         senderId: sender.id,
         eventName: event_name,
         message: message.text,
+        msgId: message.msg_id
     });
     return res.send({ status: 200, message: 'Send' });
 };

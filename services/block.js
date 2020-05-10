@@ -142,7 +142,6 @@ const updateListElements = async (data) => {
         { name: name },
     );
     if (!block) throw new CustomError(errorCodes.BAD_REQUEST);
-    console.log(elements);
     for (let i = 0; i < elements.length; i++) {
         let element = elements[i];
         let elementUpdate = await ElementModel.findByIdAndUpdate(
@@ -156,7 +155,6 @@ const updateListElements = async (data) => {
             },
             { new: true },
         );
-        console.log(elementUpdate);
         if (!elementUpdate) throw new CustomError(errorCodes.BAD_REQUEST);
     }
 };
@@ -221,16 +219,19 @@ const deleteElement = async (data) => {
         deleteFlag: false,
     });
     if (!group) throw new CustomError(errorCodes.BAD_REQUEST);
-    const block = await BlockModel.findByIdAndUpdate(blockId, {
-        $pull: { elements: elementId },
-    });
     const element = await ElementModel.findOneAndUpdate(
         { _id: elementId, deleteFlag: false, block_id: blockId },
         { deleteFlag: true },
         { new: true },
     );
+    const block = await BlockModel.findByIdAndUpdate(blockId, {
+        $pull: { elements: elementId },
+    })
+        .populate({ path: 'elements', match: { deleteFlag: false } })
+        .exec();
+
     if (!element) throw new CustomError(errorCodes.BAD_REQUEST);
-    return element;
+    return block;
 };
 
 module.exports = {

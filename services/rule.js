@@ -21,10 +21,17 @@ const addNewRuleForBot = async (data) => {
     const { botId, keyword, blocks } = data;
     const bot = await BotModel.findOne({ _id: botId, deleteFlag: false });
     if (!bot) throw new CustomError(errorCodes.BAD_REQUEST);
-    let rule = await RuleModel.create({
+    let ruleModel = new RuleModel({
         keyword,
         blocks,
         bot_id: botId,
+    });
+    let rule = await ruleModel.save();
+    await ruleModel.on('es-indexed', (err, result) => {
+        console.log('indexed to elastic search');
+        if (err) {
+            console.log(err);
+        }
     });
     rule = rule
         .populate({

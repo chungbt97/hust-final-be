@@ -74,7 +74,6 @@ const deleteBot = async (data) => {
         _id: userId,
     });
     if (!account) throw new CustomError(errorCodes.BAD_REQUEST);
-    console.log(data);
     let botDelete = await BotModel.findOneAndUpdate(
         { _id: botId, deleteFlag: false },
         {

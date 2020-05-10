@@ -15,4 +15,9 @@ var AttributeSchema = new mongoose.Schema(
 );
 
 var Attribute = mongoose.model('Attribute', AttributeSchema);
+AttributeSchema.pre('save', async function (next) {
+    let nameLower = this.name.toLowerCase();
+    this.name = nameLower;
+    next();
+});
 module.exports = Attribute;
