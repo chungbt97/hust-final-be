@@ -15,12 +15,13 @@ var BotSchema = new mongoose.Schema(
         description: {
             type: String,
         },
-        app_id: { type: String, trim: true },
+        oa_id: { type: String, trim: true },
         tokenApp: { type: String, trim: true },
         user_id: { type: ObjectId, ref: 'Account' },
+        avatar: { type: String, trim: true },
         deleteFlag: { type: Boolean, default: false },
     },
-    { timestamps: true }
+    { timestamps: true },
 );
 var Bot = mongoose.model('Bot', BotSchema);
 module.exports = Bot;

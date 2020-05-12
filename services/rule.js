@@ -4,7 +4,10 @@ const CustomError = require('../common/CustomError');
 const BotModel = require('../models/bot');
 
 const getAllRulesOfBot = async (data) => {
-    const { botId } = data;
+    const { botId, keySearch } = data;
+    console.log('====================================');
+    console.log(data);
+    console.log('====================================');
     const bot = await BotModel.findOne({ _id: botId, deleteFlag: false });
     if (!bot) throw new CustomError(errorCodes.BAD_REQUEST);
     const rules = await RuleModel.find({ bot_id: botId, deleteFlag: false })
@@ -14,7 +17,15 @@ const getAllRulesOfBot = async (data) => {
             select: '_id name',
         })
         .exec();
-    return rules;
+    if (keySearch === null || keySearch === 'undefined' || keySearch === '') {
+        return rules;
+    } else {
+        let ruleFilter = [];
+        rules.forEach((r) => {
+            if (new RegExp(keySearch).test(r.keyword)) ruleFilter.push(r);
+        });
+        return ruleFilter;
+    }
 };
 
 const addNewRuleForBot = async (data) => {

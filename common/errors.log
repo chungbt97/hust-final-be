@@ -1361,3 +1361,148 @@
 [2020-05-06 16:25:30] [[31merror[39m] Error
 [2020-05-07 09:21:25] [[31merror[39m] Error
 [2020-05-09 08:25:35] [[31merror[39m] Error
+[2020-05-11 09:51:26] [[31merror[39m] Error
+[2020-05-11 09:53:12] [[31merror[39m] Error: getaddrinfo ENOTFOUND openapi.zalo.me
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:64:26)
+[2020-05-11 09:54:29] [[31merror[39m] Error: getaddrinfo ENOTFOUND openapi.zalo.me
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:64:26)
+[2020-05-11 09:55:34] [[31merror[39m] Error: getaddrinfo ENOTFOUND openapi.zalo.me
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:64:26)
+[2020-05-11 09:55:57] [[31merror[39m] Error: getaddrinfo ENOTFOUND openapi.zalo.me
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:64:26)
+[2020-05-11 10:18:19] [[31merror[39m] Error
+[2020-05-11 10:49:23] [[31merror[39m] TypeError: blockService.deleteBlock is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:62:47)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:20:55] [[31merror[39m] TypeError: blockService.deleteBlock is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:62:47)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:23:35] [[31merror[39m] TypeError: blockService.deleteBlock is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:62:47)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:24:43] [[31merror[39m] TypeError: blockService.deleteBlock is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:62:47)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:26:57] [[31merror[39m] TypeError: Cannot read property 'deleteBlock' of undefined
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:62:47)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:28:36] [[31merror[39m] TypeError: blockService.deleteBlock is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:62:47)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:30:32] [[31merror[39m] TypeError: blockService.deleteBlock is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:62:47)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:33:19] [[31merror[39m] TypeError: blockService.deleteBlock is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:63:47)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:33:57] [[31merror[39m] TypeError: blockService.deleteBlock is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:63:47)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:34:52] [[31merror[39m] TypeError: blockService.deleteBlock is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:63:45)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:36:53] [[31merror[39m] TypeError: blockService.deleteBlockHa is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:63:45)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-11 14:40:21] [[31merror[39m] TypeError: deleteBlock is not a function
+    at Object.deleteGroup (D:\server-node-workspace\final_project_server\services\group.js:63:32)
+    at deleteGroup (D:\server-node-workspace\final_project_server\controllers\GroupController.js:45:36)
+    at D:\server-node-workspace\final_project_server\middlewares\async.js:6:21
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at getValidationResult (D:\server-node-workspace\final_project_server\common\validation.js:255:5)
+    at Layer.handle [as handle_request] (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\server-node-workspace\final_project_server\node_modules\express\lib\router\route.js:137:13)
+    at middleware (D:\server-node-workspace\final_project_server\node_modules\express-validator\src\middlewares\check.js:15:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2020-05-12 14:58:15] [[31merror[39m] Error
+[2020-05-12 15:03:30] [[31merror[39m] Error

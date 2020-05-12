@@ -10,7 +10,8 @@ const BlockModel = require('../models/block');
 const BotModel = require('../models/bot');
 const blockService = require('./block');
 
-const getGroupOfBot = async (botId) => {
+const getGroupOfBot = async (data) => {
+    const { botId, keySearch } = data;
     let groups = await GroupModel.find({
         bot_id: botId,
         deleteFlag: false,
@@ -22,7 +23,39 @@ const getGroupOfBot = async (botId) => {
         })
         .exec();
     if (!groups) throw new CustomError(errorCodes.INTERNAL_SERVER_ERROR);
-    return groups;
+    if (keySearch === 'undefined' || keySearch == null || keySearch === '') {
+        return groups;
+    } else {
+        let groupFilter = [];
+        groups.forEach((g) => {
+            let blocks = [];
+            g.blocks.forEach((b) => {
+                if (
+                    new RegExp(keySearch.trim().toLowerCase()).test(
+                        b.name.trim().toLowerCase(),
+                    )
+                )
+                    blocks.push(b);
+            });
+            if (blocks.length > 0) {
+                console.log(blocks);
+                let newGroup = g;
+                newGroup.blocks = blocks;
+                groupFilter.push(newGroup);
+            }
+        });
+        console.log(groupFilter);
+        return groupFilter;
+    }
+};
+
+const getAllBlocks = async (botId) => {
+    let groups = await getGroupOfBot(botId);
+    let blocks = [];
+    groups.forEach((g) => {
+        blocks = [...blocks, ...g.blocks];
+    });
+    return blocks;
 };
 
 const addNewGroupToBot = async (data) => {
@@ -32,7 +65,7 @@ const addNewGroupToBot = async (data) => {
     let newGroup = await GroupModel.create({
         name,
         bot_id: botId,
-        blocks:[]
+        blocks: [],
     });
     return newGroup;
 };
@@ -59,7 +92,7 @@ const updateGroup = async (data) => {
 
 const deleteGroup = async (data) => {
     const { groupId, botId } = data;
-    const blockBeDeleted = await blockService.deleteBlock({ groupId, botId });
+    let blockBeDeleted = await blockService.deleteBlock({ groupId, botId });
     let group = await GroupModel.findOneAndUpdate(
         { _id: groupId },
         { deleteFlag: true },
@@ -77,4 +110,11 @@ const deleteGroup = async (data) => {
     if (!group) throw new CustomError(errorCodes.BAD_REQUEST);
     return group;
 };
-module.exports = { getGroupOfBot, addNewGroupToBot, updateGroup, deleteGroup };
+
+module.exports = {
+    getGroupOfBot,
+    addNewGroupToBot,
+    updateGroup,
+    deleteGroup,
+    getAllBlocks,
+};

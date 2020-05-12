@@ -23,10 +23,12 @@ const findOrCreateUser = async (data) => {
     if (!user) {
         let dataUser = await getInforUser({ userAppId, tokenApp });
         let name = dataUser.display_name;
+        let avatar = Object.values(dataUser.avatars)[1];
         user = await UserModel.create({
             name,
             user_app_id: userAppId,
             bot_id: botId,
+            avatar,
         });
     }
     return user;

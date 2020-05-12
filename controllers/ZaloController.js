@@ -11,9 +11,9 @@ const exampleBody = {
 };
 
 const replyMessage = async (req, res) => {
-    let { app_id, sender, event_name, message } = req.body;
+    let { recipient, sender, event_name, message } = req.body;
     const messageReply = await zaloService.replyMessage({
-        appId: app_id,
+        oaId: recipient.id,
         senderId: sender.id,
         eventName: event_name,
         message: message.text,

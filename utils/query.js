@@ -6,11 +6,11 @@ const getFieldUpdates = (table, data) => {
     switch (table) {
         case tableName.BOT:
             const { userId, bot } = data;
-            const { name, description, appId, tokenApp } = bot;
+            const { name, description, oaId, tokenApp } = bot;
             fieldUpdates.user_id = userId;
             if (name) fieldUpdates.name = name;
             if (description) fieldUpdates.description = description;
-            if (appId) fieldUpdates.app_id = appId;
+            if (oaId) fieldUpdates.oa_id = oaId;
             if (tokenApp) fieldUpdates.tokenApp = tokenApp;
             return fieldUpdates;
         default:

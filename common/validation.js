@@ -69,11 +69,6 @@ function validateAction(action) {
                     .withMessage(`AccessToken is required`)
                     .isString()
                     .trim(),
-                body('appId')
-                    .exists()
-                    .withMessage(`App id is required`)
-                    .isString()
-                    .trim(),
             ];
         }
         case actionTypes.UPDATE_BOT: {
@@ -87,11 +82,6 @@ function validateAction(action) {
                 body('tokenApp')
                     .exists()
                     .withMessage(`AccessToken is required`)
-                    .isString()
-                    .trim(),
-                body('appId')
-                    .exists()
-                    .withMessage(`App id is required`)
                     .isString()
                     .trim(),
             ];

@@ -3,7 +3,8 @@ const groupService = require('../services/group');
 // lấy ra toàn bộ các group có chứa cả block
 const getGroup = async (req, res) => {
     let { botId } = req.params;
-    let groups = await groupService.getGroupOfBot(botId);
+    let { key } = req.query;
+    let groups = await groupService.getGroupOfBot({ botId, keySearch: key });
     res.send({
         status: 200,
         message: 'Ok',
@@ -31,7 +32,7 @@ const updateGroup = async (req, res) => {
     let group = await groupService.updateGroup({
         name,
         groupId,
-        botId
+        botId,
     });
     return res.send({
         status: 200,

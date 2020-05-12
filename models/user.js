@@ -13,11 +13,12 @@ var UserSchema = new mongoose.Schema(
         },
         user_app_id: { type: String, required: true },
         current_session: { type: String },
+        avatar: { type: String },
         bot_id: { type: ObjectId, ref: 'Bot' },
         old_session: [{ type: String }],
-        element_id: { type: ObjectId, ref: 'Element' },  
+        element_id: { type: ObjectId, ref: 'Element' },
     },
-    { timestamps: true }
+    { timestamps: true },
 );
 
 var User = mongoose.model('User', UserSchema);

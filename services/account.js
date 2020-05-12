@@ -38,7 +38,7 @@ const loginAccount = async ({ userEmail, password }) => {
     let accessToken = null;
     const acc = await AccountModel.findOne({
         userEmail,
-    }).select('_id, password');
+    });
     if (!acc) throw new CustomError(errorCodes.ACCOUNT_NOT_EXISTS);
     if (md5(password) === acc.password) {
         accessToken = authService.generateAccessToken(acc._id);

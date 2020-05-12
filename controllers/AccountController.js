@@ -29,7 +29,7 @@ const loginAccount = async (req, res) => {
         status: 200,
         message: 'Ok',
         access_token: accessToken,
-        id: acc._id,
+        account: acc,
     });
 };
 

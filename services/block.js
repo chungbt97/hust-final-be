@@ -3,19 +3,11 @@ const errorCodes = require('../constants/errors');
 const GroupModel = require('../models/group');
 const BlockModel = require('../models/block');
 const ElementModel = require('../models/element');
-const GroupService = require('./group');
+
 const fs = require('fs');
 const path = require('path');
 var mongoose = require('mongoose');
 
-const getAllBlocks = async (botId) => {
-    let groups = await GroupService.getGroupOfBot(botId);
-    let blocks = [];
-    groups.forEach((g) => {
-        blocks = [...blocks, ...g.blocks];
-    });
-    return blocks;
-};
 
 const getBlock = async (data) => {
     let { botId, groupId, blockId } = data;
@@ -79,6 +71,7 @@ const updateNameBlock = async (data) => {
 };
 
 const deleteBlock = async (data) => {
+    console.log("hhaha")
     let { botId, groupId, blockId } = data;
     let group = await GroupModel.findOne({
         _id: groupId,
@@ -245,5 +238,4 @@ module.exports = {
     getPath,
     createEmptyElement,
     deleteElement,
-    getAllBlocks,
 };
