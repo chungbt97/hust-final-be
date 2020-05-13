@@ -32,6 +32,9 @@ const addNewBot = async (data) => {
     if (!account) throw new CustomError(errorCodes.BAD_REQUEST);
     let dataOa = await getInformationOa(tokenApp);
     const { oa_id, avatar } = dataOa;
+    console.log('====================================');
+    console.log(dataOa);
+    console.log('====================================');
     let newBot = await BotModel.create({
         name,
         description,
