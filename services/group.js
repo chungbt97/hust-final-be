@@ -48,7 +48,7 @@ const getGroupOfBot = async (data) => {
 };
 
 const getAllBlocks = async (botId) => {
-    let groups = await getGroupOfBot(botId);
+    let groups = await getGroupOfBot({ botId });
     let blocks = [];
     groups.forEach((g) => {
         blocks = [...blocks, ...g.blocks];
