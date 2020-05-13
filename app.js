@@ -6,7 +6,6 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 require('dotenv').config();
 var errorHandler = require('./common/ErrorHandler');
-var cors = require('cors');
 //Router
 
 // create server
@@ -25,9 +24,9 @@ app.use(function (req, res, next) {
     );
 
     // Request headers you wish to allow
-    res.setHeader(
+    res.header(
         'Access-Control-Allow-Headers',
-        'X-Requested-With,content-type',
+        'Origin, X-Requested-With, Content-Type, Accept',
     );
 
     // Set to true if you need the website to include cookies in the requests sent
