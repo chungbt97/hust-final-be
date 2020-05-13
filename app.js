@@ -16,7 +16,7 @@ app.use(cors());
 // Add headers
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+    res.setHeader('Access-Control-Allow-Origin', 'https://chungbt.vbee.vn/');
 
     // Request methods you wish to allow
     res.setHeader(
