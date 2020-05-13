@@ -5,9 +5,6 @@ const BotModel = require('../models/bot');
 
 const getAllRulesOfBot = async (data) => {
     const { botId, keySearch } = data;
-    console.log('====================================');
-    console.log(data);
-    console.log('====================================');
     const bot = await BotModel.findOne({ _id: botId, deleteFlag: false });
     if (!bot) throw new CustomError(errorCodes.BAD_REQUEST);
     const rules = await RuleModel.find({ bot_id: botId, deleteFlag: false })

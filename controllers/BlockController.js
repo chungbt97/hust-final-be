@@ -132,7 +132,6 @@ const deleteElement = async (req, res) => {
         blockId,
         elementId,
     });
-    console.log(block);
     return res.send({
         status: 200,
         message: 'Ok',

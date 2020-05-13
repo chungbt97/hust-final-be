@@ -38,13 +38,11 @@ const getGroupOfBot = async (data) => {
                     blocks.push(b);
             });
             if (blocks.length > 0) {
-                console.log(blocks);
                 let newGroup = g;
                 newGroup.blocks = blocks;
                 groupFilter.push(newGroup);
             }
         });
-        console.log(groupFilter);
         return groupFilter;
     }
 };

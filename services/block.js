@@ -71,7 +71,6 @@ const updateNameBlock = async (data) => {
 };
 
 const deleteBlock = async (data) => {
-    console.log("hhaha")
     let { botId, groupId, blockId } = data;
     let group = await GroupModel.findOne({
         _id: groupId,
