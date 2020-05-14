@@ -3,14 +3,17 @@
  * Controller handle action with bot
  */
 const botService = require('../services/bot');
+var mongoose = require('mongoose');
 
 const getAllBot = async (req, res) => {
     let userId = req.data.accountId;
     let { newBotId } = req.query;
-    const updateNewBot = await botService.updateUserForNewBot({
-        newBotId,
-        userId,
-    });
+    if (newBotId !== -1 && mongoose.Types.ObjectId.isValid(newBotId)) {
+        const updateNewBot = await botService.updateUserForNewBot({
+            newBotId,
+            userId,
+        });
+    }
     const bots = await botService.getAllBot(userId);
     return res.send({
         status: 200,

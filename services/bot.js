@@ -91,7 +91,7 @@ const deleteBot = async (data) => {
 const updateUserForNewBot = async (data) => {
     const { newBotId, userId } = data;
     let botEdit = await BotModel.findOneAndUpdate(
-        { _id: newBotId, deleteFlag: false },
+        { _id: newBotId, deleteFlag: false, user_id: {$exists: false } },
         {
             $set: { user_id: userId },
         },
@@ -99,6 +99,7 @@ const updateUserForNewBot = async (data) => {
             new: true,
         },
     );
+    
     if (!botEdit) throw new CustomError(errorCodes.BAD_REQUEST);
     return botEdit;
 };
