@@ -23,5 +23,6 @@ module.exports = {
     OA_DELETED: -204,
     OA_NOT_EXISTS: -205,
     APP_INVALID: -215,
-    ACCESS_TOKEN_INVALID: -216
+    ACCESS_TOKEN_INVALID: -216,
+    OA_EXISTS: 1010,
   };

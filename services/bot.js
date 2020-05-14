@@ -10,7 +10,7 @@ const AccountModel = require('../models/account');
 const GroupModel = require('../models/group');
 const queryUtils = require('../utils/query');
 const tableName = require('../constants/table');
-var axios = require('axios').default;
+var axios = require('axios');
 const { ZALO_ENDPOINT } = require('../constants');
 
 const getAllBot = async (id) => {
@@ -24,23 +24,14 @@ const getAllBot = async (id) => {
 };
 
 const addNewBot = async (data) => {
-    const { userId, bot } = data;
-    const { name, description, tokenApp } = bot;
-    const account = await AccountModel.findOne({
-        _id: userId,
-    });
-    if (!account) throw new CustomError(errorCodes.BAD_REQUEST);
-    let dataOa = await getInformationOa(tokenApp);
-    const { oa_id, avatar } = dataOa;
-    console.log('====================================');
-    console.log(dataOa);
-    console.log('====================================');
+    const { description, name, avatar, tokenApp, oaId } = data;
+    let bot = await BotModel.findOne({ oa_id: oaId });
+    if (bot) throw new CustomError(errorCodes.OA_EXISTS);
     let newBot = await BotModel.create({
         name,
         description,
-        oa_id,
+        oa_id: oaId,
         tokenApp,
-        user_id: userId,
         avatar,
     });
     if (newBot) {
@@ -51,16 +42,6 @@ const addNewBot = async (data) => {
         });
     }
     return newBot;
-};
-
-const getInformationOa = async (token) => {
-    let url = `${ZALO_ENDPOINT}/getoa?access_token=${token}`;
-    const oa = await axios.get(url);
-    const { data } = oa;
-    if (data.error !== 0) {
-        throw new CustomError(errorCodes.ACCESS_TOKEN_INVALID);
-    }
-    return data.data;
 };
 
 const updateBot = async (data) => {
@@ -106,4 +87,26 @@ const deleteBot = async (data) => {
     );
     return botDelete;
 };
-module.exports = { getAllBot, addNewBot, updateBot, deleteBot };
+
+const updateUserForNewBot = async (data) => {
+    const { newBotId, userId } = data;
+    let botEdit = await BotModel.findOneAndUpdate(
+        { _id: newBotId, deleteFlag: false },
+        {
+            $set: { user_id: userId },
+        },
+        {
+            new: true,
+        },
+    );
+    if (!botEdit) throw new CustomError(errorCodes.BAD_REQUEST);
+    return botEdit;
+};
+
+module.exports = {
+    getAllBot,
+    addNewBot,
+    updateBot,
+    deleteBot,
+    updateUserForNewBot,
+};

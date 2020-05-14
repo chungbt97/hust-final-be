@@ -26,9 +26,6 @@ const sendMessage = async (data) => {
             user,
             bot,
         });
-        console.log('================29====================');
-        console.log(nextElement);
-        console.log('====================================');
         let err = [];
         for (let i = 0; i < nextElement.length; i++) {
             let options = fillDataToOption(
