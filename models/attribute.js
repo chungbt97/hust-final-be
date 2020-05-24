@@ -8,10 +8,12 @@ var AttributeSchema = new mongoose.Schema(
     {
         name: { type: String, required: true },
         user_id: { type: ObjectId, ref: 'User', require: true },
+        user_app_id: { type: String, require: true },
+        bot_id: { type: ObjectId, ref: 'Bot', require: true },
         value: { type: String },
         deleteFlag: { type: Boolean, default: false },
     },
-    { timestamps: true }
+    { timestamps: true },
 );
 
 var Attribute = mongoose.model('Attribute', AttributeSchema);

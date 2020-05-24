@@ -1,7 +1,11 @@
 const zaloService = require('../services/zalo');
 const botService = require('../services/bot');
 var { CLIENT_ENDPOINT } = require('../constants');
+
 const replyMessage = async (req, res) => {
+    console.log('=================Request From Zalo ===================');
+    console.log(req.body);
+    console.log('=================End Request Of Zalo==================');
     let { recipient, sender, event_name, message } = req.body;
     const messageReply = await zaloService.replyMessage({
         oaId: recipient.id,
@@ -19,7 +23,6 @@ const connectOfficalAccount = async (req, res) => {
     const newBot = await botService.addNewBot(newOa);
     res.redirect(`${CLIENT_ENDPOINT}/home/${newBot._id}`);
 };
-
 module.exports = {
     connectOfficalAccount,
     replyMessage,

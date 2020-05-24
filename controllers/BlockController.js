@@ -55,23 +55,6 @@ const deleteBlock = async (req, res) => {
     });
 };
 
-// route: :botId/group/:groupId/block/:blockId
-const transferBlock = async (req, res) => {
-    const { botId, groupId, blockId } = req.params;
-    const { toGroupId } = req.body;
-    let block = await blockService.transferBlock({
-        botId,
-        blockId,
-        fromGroupId: groupId,
-        toGroupId,
-    });
-    return res.send({
-        status: 200,
-        message: 'Ok',
-        data: block,
-    });
-};
-
 const createEmptyElement = async (req, res) => {
     const { blockId } = req.params;
     const { element_type, preId } = req.body;
@@ -144,7 +127,6 @@ module.exports = {
     addNewBlock,
     updateNameBlock,
     deleteBlock,
-    transferBlock,
     updateElements,
     uploadImage,
     getImage,

@@ -13,12 +13,16 @@ const axios = require('axios').default;
 const userService = require('./user');
 const { SESSION_TIME } = process.env;
 const { generatorSession, verifySesstion } = require('./user');
-const ZALO_ENDPOINT = 'https://openapi.zalo.me/v2.0/oa/message';
+const {
+    ZALO_ENDPOINT,
+    MSG_SHARE_INFO,
+    MSG_DEFAULT_ERR,
+} = require('../constants');
 const ES_ENDPOINT = 'http://localhost:9200/rules';
 const urlencode = require('urlencode');
 
 const sendMessage = async (data) => {
-    const { event_name, messageText, user, bot, msgId } = data;
+    const { event_name, messageText, user, bot, msgId, info } = data;
     let nextElement = [];
     if (event_name === 'user_send_text') {
         nextElement = await getNextElement({
@@ -45,6 +49,18 @@ const sendMessage = async (data) => {
         if (err.length > 0) {
             throw err[0];
         }
+    } else if (event_name === 'user_submit_info') {
+        const { address, phone, city, district } = info;
+        await saveInfoShare({
+            address,
+            phone,
+            city,
+            district,
+            userId: user._id,
+            userAppId: user.user_app_id,
+            botId: bot._id,
+        });
+        await callApiAppDefault(bot.name, user.user_app_id, MSG_SHARE_INFO);
     } else {
         await BadMessageModel.create({
             user_id: user._id,
@@ -52,11 +68,77 @@ const sendMessage = async (data) => {
             user_name: user.name,
             event_name,
         });
-        await callApiAppDefault(bot.name, user.user_app_id);
+        await callApiAppDefault(bot.name, user.user_app_id, MSG_DEFAULT_ERR);
     }
 };
 
-const callApiAppDefault = async (botName, userAppId) => {
+const requestShareInfo = async (data) => {
+    const { user, bot } = data;
+    let dataSend = {
+        recipient: {
+            user_id: user.user_app_id,
+        },
+        message: {
+            attachment: {
+                type: 'template',
+                payload: {
+                    template_type: 'request_user_info',
+                    elements: [
+                        {
+                            title: `Chia sẻ thông tin với ${bot.name}`,
+                            subtitle: `Tất cả thông tin được chia sẻ đều được bảo mật thông qua Zalo.`,
+                            image_url: bot.avatar,
+                        },
+                    ],
+                },
+            },
+        },
+    };
+    let option = {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        data: dataSend,
+        params: { access_token: bot.tokenApp },
+        url: `https://openapi.zalo.me/v2.0/oa/message`,
+    };
+    await callApiApp(option);
+};
+
+const saveInfoShare = async (data) => {
+    const { address, phone, city, district, userId, userAppId, botId } = data;
+    await Promise.all([
+        addOrUpdateAttribute({
+            userId: userId,
+            userAppId: userAppId,
+            nameAttribute: 'zalo_address',
+            valueAttribute: address,
+            botId: botId,
+        }),
+        addOrUpdateAttribute({
+            userId: userId,
+            userAppId: userAppId,
+            nameAttribute: 'zalo_phone',
+            valueAttribute: phone,
+            botId: botId,
+        }),
+        addOrUpdateAttribute({
+            userId: userId,
+            userAppId: userAppId,
+            nameAttribute: 'zalo_city',
+            valueAttribute: city,
+            botId: botId,
+        }),
+        addOrUpdateAttribute({
+            userId: userId,
+            userAppId: userAppId,
+            nameAttribute: 'zalo_district',
+            valueAttribute: district,
+            botId: botId,
+        }),
+    ]);
+};
+
+const callApiAppDefault = async (botName, userAppId, msg) => {
     let options = {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -65,10 +147,10 @@ const callApiAppDefault = async (botName, userAppId) => {
                 user_id: userAppId,
             },
             message: {
-                text: `${botName} không thể hiểu được tin nhắn của bạn. Bạn vui lòng đợi admin sẽ liên hệ trực tiếp lại với bạn.`,
+                text: `${botName} ${msg}`,
             },
         },
-        url: `${ZALO_ENDPOINT}?access_token=${token}`,
+        url: `${ZALO_ENDPOINT}/message?access_token=${token}`,
     };
     await callApiApp(options);
 };
@@ -83,10 +165,8 @@ const getNextElement = async (data) => {
     let currenElementID = null;
 
     let isInSession = verifySesstion(user.current_session);
-    console.log(isInSession);
     if (isInSession) {
         let { element_id } = user;
-        // Đang hỏi attribute
         if (
             element_id !== null &&
             element_id !== undefined &&
@@ -98,8 +178,10 @@ const getNextElement = async (data) => {
             // lưu giá trị vào trong bảng attribute
             await addOrUpdateAttribute({
                 userId: user._id,
+                userAppId: user.user_app_id,
                 nameAttribute: element.attribute,
                 valueAttribute: message,
+                botId: bot._id,
             });
             // thực hiện update và tìm thằng tiếp theo cần gửi
             let indexElement = 0;
@@ -214,7 +296,7 @@ const getListElementsInBlock = async (element_id) => {
  * @param {*} data
  */
 const addOrUpdateAttribute = async (data) => {
-    let { userId, nameAttribute, valueAttribute } = data;
+    let { userId, nameAttribute, valueAttribute, userAppId, botId } = data;
     let attributeExists = true;
     let attr = await AttributeModel.findOneAndUpdate(
         { user_id: userId, name: nameAttribute },
@@ -225,6 +307,8 @@ const addOrUpdateAttribute = async (data) => {
             user_id: userId,
             name: nameAttribute,
             value: valueAttribute,
+            user_app_id: userAppId,
+            bot_id: botId,
         });
         attributeExists = false;
     }
@@ -291,7 +375,7 @@ const fillDataToOption = (element, token, userAppId) => {
                     text: element.text_msg,
                 },
             },
-            url: `${ZALO_ENDPOINT}?access_token=${token}`,
+            url: `${ZALO_ENDPOINT}/message?access_token=${token}`,
         });
     } else {
         return {
@@ -305,7 +389,7 @@ const fillDataToOption = (element, token, userAppId) => {
                     text: element.text_msg,
                 },
             },
-            url: `${ZALO_ENDPOINT}?access_token=${token}`,
+            url: `${ZALO_ENDPOINT}/message?access_token=${token}`,
         };
     }
 };
@@ -408,4 +492,9 @@ const getRuleByElasticSearch = async (message, botId) => {
     return block;
 };
 
-module.exports = { sendMessage };
+module.exports = {
+    sendMessage,
+    getElement,
+    fillDataToOption,
+    requestShareInfo,
+};

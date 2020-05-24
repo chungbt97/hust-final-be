@@ -21,12 +21,12 @@ function validateAction(action) {
                     .exists()
                     .withMessage(`${fieldName.Email} is required`)
                     .isEmail()
-                    .withMessage('Invalid email')
+                    .withMessage('Email không hợp lên')
                     .isString()
                     .trim(),
                 body('password')
                     .exists()
-                    .withMessage(`${fieldName.PASSWORD} is required`)
+                    .withMessage(`Bạn cần nhập mật khẩu`)
                     .isString()
                     .trim(),
             ];
@@ -35,189 +35,147 @@ function validateAction(action) {
             return [
                 body('firstName')
                     .exists()
-                    .withMessage(`${fieldName.FIRST_NAME} is required`)
+                    .withMessage(`${fieldName.FIRST_NAME} chưa nhập`)
                     .isString()
                     .trim(),
                 body('lastName')
                     .exists()
-                    .withMessage(`${fieldName.LAST_NAME} is required`)
+                    .withMessage(`${fieldName.LAST_NAME} chưa nhập`)
                     .isString()
                     .trim(),
                 body('userEmail')
                     .exists()
-                    .withMessage(`${fieldName.Email} is required`)
+                    .withMessage(`${fieldName.Email} chưa nhập`)
                     .isEmail()
-                    .withMessage('Invalid email')
+                    .withMessage('Email không hợp lệ')
                     .isString()
                     .trim(),
                 body('password')
                     .exists()
-                    .withMessage(`${fieldName.PASSWORD} is required`)
+                    .withMessage(`${fieldName.PASSWORD}chưa nhập`)
                     .isString()
                     .trim(),
             ];
         }
-        case actionTypes.ADD_NEW_BOT: {
-            return [
-                body('name')
-                    .exists()
-                    .withMessage(`Bot name is required`)
-                    .isString()
-                    .trim(),
-                body('tokenApp')
-                    .exists()
-                    .withMessage(`AccessToken is required`)
-                    .isString()
-                    .trim(),
-            ];
-        }
-        case actionTypes.UPDATE_BOT: {
-            return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                body('name')
-                    .exists()
-                    .withMessage(`Bot name is required`)
-                    .isString()
-                    .trim(),
-                body('tokenApp')
-                    .exists()
-                    .withMessage(`AccessToken is required`)
-                    .isString()
-                    .trim(),
-            ];
+        case actionTypes.GET_DATA_BOT: {
+            return [param('botId').exists().withMessage(`Thông tin Bot yêu cầu không hợp lên`)];
         }
         case actionTypes.DELETE_BOT: {
-            return param('botId').exists().withMessage('Bot id is invalid');
+            return param('botId').exists().withMessage('Thông tin bot yêu cầu không đúng');
         }
         case actionTypes.GET_ALL_GROUP: {
-            return param('botId').exists().withMessage(`Bot is invalid`);
+            return param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`);
         }
         case actionTypes.ADD_NEW_GROUP: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
                 body('name')
                     .exists()
-                    .withMessage(`Name's group is invalid `)
+                    .withMessage('Tên của nhóm hành động không đúng')
                     .isString()
                     .trim(),
             ];
         }
         case actionTypes.UPDATE_GROUP: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('groupId').exists().withMessage(`Group is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
+                param('groupId').exists().withMessage(`Thông tin nhóm yêu cầu không đúng`),
                 body('name')
                     .exists()
-                    .withMessage(`Name's group is invalid `)
+                    .withMessage(`Tên nhóm yêu cầu không thể để trống `)
                     .isString()
                     .trim(),
             ];
         }
         case actionTypes.DELETE_GROUP: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('groupId').exists().withMessage(`Group is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
+                param('groupId').exists().withMessage(`Thông tin nhóm yêu cầu không đúng`),
             ];
         }
         case actionTypes.GET_CONTENT_BLOCK: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('groupId').exists().withMessage(`Group is invalid`),
-                param('blockId').exists().withMessage(`Block is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
+                param('groupId').exists().withMessage(`Thông tin nhóm yêu cầu không đúng`),
+                param('blockId').exists().withMessage(`Thông tin hành động không đúng`),
             ];
         }
         case actionTypes.ADD_NEW_BLOCK: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('groupId').exists().withMessage(`Group is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
+                param('groupId').exists().withMessage(`Thông tin nhóm yêu cầu không đúng`),
                 body('name')
                     .exists()
-                    .withMessage(`Name of Block is required`)
+                    .withMessage(`Tên của hành động không thể để trống`)
                     .isString()
                     .trim(),
             ];
         }
-        case actionTypes.TRANSFER_BLOCK: {
-            return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('groupId').exists().withMessage(`Group is invalid`),
-                param('blockId').exists().withMessage(`Block is invalid`),
-                body('toGroupId')
-                    .exists()
-                    .withMessage(`Destination - group is required`),
-            ];
-        }
         case actionTypes.UPDATE_NAME_BLOCK: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('groupId').exists().withMessage(`Group is invalid`),
-                param('blockId').exists().withMessage(`Block is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
+                param('groupId').exists().withMessage(`Thông tin nhóm yêu cầu không đúng`),
+                param('blockId').exists().withMessage(`Thông tin hành động không đúng`),
                 body('name')
                     .exists()
-                    .withMessage(`Name of Block is required`)
+                    .withMessage(`Tên của hành động không thể để trống`)
                     .isString()
                     .trim(),
             ];
         }
         case actionTypes.DELETE_BLOCK: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('groupId').exists().withMessage(`Group is invalid`),
-                param('blockId').exists().withMessage(`Block is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
+                param('groupId').exists().withMessage(`Thông tin nhóm yêu cầu không đúng`),
+                param('blockId').exists().withMessage(`Thông tin hành động không đúng`),
             ];
         }
         case actionTypes.UPDATE_ELEMENTS_BLOCK: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('groupId').exists().withMessage(`Group is invalid`),
-                param('blockId').exists().withMessage(`Block is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
+                param('groupId').exists().withMessage(`Thông tin nhóm yêu cầu không đúng`),
+                param('blockId').exists().withMessage(`Thông tin hành động không đúng`),
                 body('elements')
                     .exists()
-                    .withMessage('Data of block is required'),
-                body('name').exists().withMessage('Name of block is required'),
+                    .withMessage('Dữ liệu của hành động không đúng'),
+                body('name').exists().withMessage('Tên của hành động không thể để trống'),
             ];
         }
         case actionTypes.GET_ALL_RULE: {
-            return param('botId').exists().withMessage(`Bot is invalid`);
+            return param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`);
         }
         case actionTypes.ADD_NEW_RULE: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
                 body('keyword')
                     .exists()
-                    .withMessage('Data of rule is required - keyword'),
-                // body('blocks')
-                //     .exists()
-                //     .withMessage(
-                //         'Data of rule is required - list blocks answer',
-                //     ),
+                    .withMessage('Bạn cần nhập Keyword cho luật'),
             ];
         }
         case actionTypes.UPDATE_RULE: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('ruleId').exists().withMessage(`Rule is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
+                param('ruleId').exists().withMessage(`Thông tin luật yêu cầu không đúng`),
                 body('keyword')
                     .exists()
-                    .withMessage('Data of rule is required - keyword'),
+                    .withMessage('Bạn cần nhập keyword cho luật của bạn'),
                 body('blocks')
                     .exists()
                     .withMessage(
-                        'Data of rule is required - list blocks answer',
+                        'Bạn cần đưa ra hành động ứng với luật',
                     ),
-            
             ];
         }
         case actionTypes.DELETE_GROUP: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('ruleId').exists().withMessage(`Rule is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
+                param('ruleId').exists().withMessage(`Thông tin luật yêu cầu không đúng`),
             ];
         }
 
         case actionTypes.CREATE_EMPTY_ELEMENT: {
             return [
-                param('blockId').exists().withMessage(`Block is invalid`),
+                param('blockId').exists().withMessage(`Thông tin hành động không đúng`),
                 body('element_type')
                     .exists()
                     .withMessage(`This type have wrong something`),
@@ -226,11 +184,18 @@ function validateAction(action) {
 
         case actionTypes.DELETE_ELEMENT: {
             return [
-                param('botId').exists().withMessage(`Bot is invalid`),
-                param('groupId').exists().withMessage(`Group is invalid`),
-                param('blockId').exists().withMessage(`Block is invalid`),
-                param('elementId').exists().withMessage(`Element is invalid`),
+                param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`),
+                param('groupId').exists().withMessage(`Thông tin nhóm yêu cầu không đúng`),
+                param('blockId').exists().withMessage(`Thông tin hành động không đúng`),
+                param('elementId').exists().withMessage(`Thông tin hành động con yêu cầu không đúng`),
             ];
+        }
+
+        case actionTypes.GET_ALL_USER: {
+            return [param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`)];
+        }
+        case actionTypes.SEND_MESSAGE: {
+            return [param('botId').exists().withMessage(`Thông tin bot yêu cầu không đúng`)];
         }
         default: {
             return [];

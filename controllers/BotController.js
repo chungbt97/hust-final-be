@@ -3,6 +3,7 @@
  * Controller handle action with bot
  */
 const botService = require('../services/bot');
+const userService = require('../services/user');
 var mongoose = require('mongoose');
 
 const getAllBot = async (req, res) => {
@@ -36,22 +37,6 @@ const addNewBot = async (req, res) => {
     });
 };
 
-const updateBot = async (req, res) => {
-    let userId = req.data.accountId;
-    let data = req.body;
-    let { botId } = req.params;
-    let oldBot = await botService.updateBot({
-        userId,
-        bot: data,
-        botId,
-    });
-    return res.send({
-        status: 200,
-        message: 'Update bot done',
-        data: oldBot,
-    });
-};
-
 const deleteBot = async (req, res) => {
     let userId = req.data.accountId;
     let { botId } = req.params;
@@ -65,4 +50,16 @@ const deleteBot = async (req, res) => {
     });
 };
 
-module.exports = { getAllBot, addNewBot, updateBot, deleteBot };
+const getDataOfBot = async (req, res) => {
+    const { botId } = req.params;
+    let bot = await botService.getDataOfBot({
+        botId,
+    });
+    return res.send({
+        status: 200,
+        message: 'Ok',
+        data: bot,
+    });
+};
+
+module.exports = { getAllBot, addNewBot, deleteBot, getDataOfBot };

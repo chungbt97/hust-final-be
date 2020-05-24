@@ -6,8 +6,12 @@
 const CustomError = require('../common/CustomError');
 const errorCodes = require('../constants/errors');
 const BotModel = require('../models/bot');
+const UserModel = require('../models/user');
+const RuleModel = require('../models/rule');
 const AccountModel = require('../models/account');
 const GroupModel = require('../models/group');
+const GroupService = require('../services/group');
+const UserService = require('../services/user');
 const queryUtils = require('../utils/query');
 const tableName = require('../constants/table');
 var axios = require('axios');
@@ -24,8 +28,8 @@ const getAllBot = async (id) => {
 };
 
 const addNewBot = async (data) => {
-    const { description, name, avatar, tokenApp, oaId } = data;
-    let bot = await BotModel.findOne({ oa_id: oaId });
+    const { description, name, avatar, tokenApp, oaId, cover } = data;
+    let bot = await BotModel.findOne({ oa_id: oaId, deleteFlag: false });
     if (bot) throw new CustomError(errorCodes.OA_EXISTS);
     let newBot = await BotModel.create({
         name,
@@ -33,6 +37,7 @@ const addNewBot = async (data) => {
         oa_id: oaId,
         tokenApp,
         avatar,
+        cover,
     });
     if (newBot) {
         await GroupModel.create({
@@ -104,10 +109,30 @@ const updateUserForNewBot = async (data) => {
     return botEdit;
 };
 
+const getDataOfBot = async (data) => {
+    const { botId } = data;
+    let bot = await BotModel.findOne({ _id: botId, deleteFlag: false });
+    if (!bot) throw new CustomError(errorCodes.BAD_REQUEST);
+    let [totalFollowers, totalRules, blocks, totalSession] = await Promise.all([
+        UserModel.find({ bot_id: botId }).count(),
+        RuleModel.find({ bot_id: botId, deleteFlag: false }).count(),
+        GroupService.getAllBlocks(botId),
+        UserService.countTotalSesions(botId),
+    ]);
+    return {
+        bot,
+        totalFollowers,
+        totalRules,
+        totalBlocks: blocks.length,
+        totalSession,
+    };
+};
+
 module.exports = {
     getAllBot,
     addNewBot,
     updateBot,
     deleteBot,
     updateUserForNewBot,
+    getDataOfBot,
 };

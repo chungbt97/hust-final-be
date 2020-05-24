@@ -94,39 +94,6 @@ const deleteBlock = async (data) => {
     return block;
 };
 
-const transferBlock = async (data) => {
-    let { botId, fromGroupId, toGroupId, blockId } = data;
-    const [startGroup, desGroup] = await Promise.all([
-        GroupModel.findOne({
-            _id: fromGroupId,
-            bot_id: botId,
-            deleteFlag: false,
-        }),
-        GroupModel.findOne({
-            _id: toGroupId,
-            bot_id: botId,
-            deleteFlag: false,
-        }),
-    ]);
-    if (!startGroup || !desGroup) throw new CustomError(errorCodes.BAD_REQUEST);
-    const fromGroup = await GroupModel.findByIdAndUpdate(
-        { _id: fromGroupId, deleteFlag: false },
-        { $pull: { blocks: blockId } },
-    );
-    if (!fromGroup) throw new CustomError(errorCodes.BAD_REQUEST);
-    const toGroup = await GroupModel.findByIdAndUpdate(
-        { _id: toGroupId, deleteFlag: false },
-        { $push: { blocks: blockId } },
-    );
-    if (!toGroup) throw new CustomError(errorCodes.BAD_REQUEST);
-    const block = await BlockModel.findByIdAndUpdate(
-        { _id: blockId, deleteFlag: false },
-        { $set: { group_id: toGroupId } },
-    );
-    if (!block) throw new CustomError(errorCodes.BAD_REQUEST);
-    return { fromGroup, toGroup, blockId };
-};
-
 const updateListElements = async (data) => {
     const { elements, blockId, name } = data;
     const block = await BlockModel.findOneAndUpdate(
@@ -232,7 +199,6 @@ module.exports = {
     addBlock,
     updateNameBlock,
     deleteBlock,
-    transferBlock,
     updateListElements,
     uploadImage,
     getPath,

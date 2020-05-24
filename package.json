@@ -43,6 +43,7 @@
         "pm2": "^4.2.3",
         "prettier": "^2.0.5",
         "snakecase-keys": "^3.1.2",
+        "string-replace-async": "^1.2.1",
         "urlencode": "^1.1.0",
         "winston": "^3.2.1",
         "zalo-sdk": "^2.0.4"

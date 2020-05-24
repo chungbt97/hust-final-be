@@ -45,14 +45,6 @@ router.delete(
     asyncMiddleware(blockController.deleteBlock),
 );
 
-router.post(
-    '/:botId/group/:groupId/block/:blockId',
-    auth,
-    validateAction(actionTypes.TRANSFER_BLOCK),
-    getValidationResult,
-    asyncMiddleware(blockController.transferBlock),
-);
-
 router.put(
     '/:botId/group/:groupId/block/:blockId/elements',
     auth,

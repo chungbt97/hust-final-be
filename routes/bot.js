@@ -18,21 +18,12 @@ router.get(
     getValidationResult,
     asyncMiddleware(botController.getAllBot)
 );
-
-router.post(
-    '/',
-    auth,
-    validateAction(actionTypes.ADD_NEW_BOT),
-    getValidationResult,
-    asyncMiddleware(botController.addNewBot)
-);
-
-router.put(
+router.get(
     '/:botId',
     auth,
-    validateAction(actionTypes.UPDATE_BOT),
+    validateAction(actionTypes.GET_DATA_BOT),
     getValidationResult,
-    asyncMiddleware(botController.updateBot)
+    asyncMiddleware(botController.getDataOfBot)
 );
 
 router.delete(

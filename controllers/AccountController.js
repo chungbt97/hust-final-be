@@ -33,4 +33,5 @@ const loginAccount = async (req, res) => {
     });
 };
 
+
 module.exports = { signUpAccount, loginAccount };
