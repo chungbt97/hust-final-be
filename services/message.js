@@ -316,7 +316,7 @@ const getDefaultBlockElement = async (botId, code) => {
 
 const fillDataToOption = (element, token, userAppId) => {
     if (element.attachment_msg) {
-        return (options = {
+        return {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             data: {
@@ -325,11 +325,11 @@ const fillDataToOption = (element, token, userAppId) => {
                 },
                 message: {
                     attachment: element.attachment_msg,
-                    text: element.text_msg,
+                    text: element.text_msg !== null ? element.text_msg : '',
                 },
             },
             url: `${ZALO_ENDPOINT}/message?access_token=${token}`,
-        });
+        };
     } else {
         return {
             method: 'POST',

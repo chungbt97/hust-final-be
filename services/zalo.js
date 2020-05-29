@@ -131,7 +131,6 @@ const sendBlock = async (data) => {
     let token = bot.tokenApp;
     let block = await BlockModel.findById(blockId).populate('elements').exec();
     let { arrReturn, idReturn } = messageService.getElement(block);
-
     for (let i = 0; i < recipientId.length; i++) {
         let userAppId = recipientId[i];
         let newSession = userService.generatorSession(userAppId);
