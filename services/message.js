@@ -62,7 +62,12 @@ const sendMessage = async (data) => {
             userAppId: user.user_app_id,
             botId: bot._id,
         });
-        await callApiAppDefault(bot.name, user.user_app_id, MSG_SHARE_INFO, bot.tokenApp);
+        await callApiAppDefault(
+            bot.name,
+            user.user_app_id,
+            MSG_SHARE_INFO,
+            bot.tokenApp,
+        );
     } else {
         await BadMessageModel.create({
             user_id: user._id,
@@ -70,7 +75,12 @@ const sendMessage = async (data) => {
             user_name: user.name,
             event_name,
         });
-        await callApiAppDefault(bot.name, user.user_app_id, MSG_DEFAULT_ERR);
+        await callApiAppDefault(
+            bot.name,
+            user.user_app_id,
+            MSG_DEFAULT_ERR,
+            bot.tokenApp,
+        );
     }
 };
 
