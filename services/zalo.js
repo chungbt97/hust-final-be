@@ -23,7 +23,7 @@ const replyMessage = async (data) => {
         botId: bot._id,
         tokenApp: bot.tokenApp,
     });
-    const replyMessage = messageService.sendMessage({
+    const replyMessage = await messageService.sendMessage({
         event_name: eventName,
         messageText: message,
         bot,

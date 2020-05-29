@@ -32,16 +32,106 @@ const findOrCreateUser = async (data) => {
             bot_id: botId,
             avatar,
         });
-        await AttributeModel.create({
-            user_id: user._id,
-            name: 'zalo_name',
-            value: name,
-            user_app_id: userAppId,
-            bot_id: botId,
-        });
+        if (dataUser.shared_info !== undefined) {
+            const {
+                address,
+                phone,
+                city,
+                district,
+                name,
+            } = dataUser.shared_info;
+            await saveInfoShare({
+                name,
+                address,
+                phone,
+                city,
+                district,
+                userId: user._id,
+                userAppId,
+                botId,
+            });
+        } else {
+            await AttributeModel.create({
+                user_id: user._id,
+                name: 'zalo_name',
+                value: name,
+                user_app_id: userAppId,
+                bot_id: botId,
+            });
+        }
         newUser = true;
     }
     return { user, newUser };
+};
+
+const saveInfoShare = async (data) => {
+    const {
+        name,
+        address,
+        phone,
+        city,
+        district,
+        userId,
+        userAppId,
+        botId,
+    } = data;
+    await Promise.all([
+        addOrUpdateAttribute({
+            userId: userId,
+            userAppId: userAppId,
+            nameAttribute: 'zalo_name',
+            valueAttribute: name,
+            botId: botId,
+        }),
+        addOrUpdateAttribute({
+            userId: userId,
+            userAppId: userAppId,
+            nameAttribute: 'zalo_address',
+            valueAttribute: address,
+            botId: botId,
+        }),
+        addOrUpdateAttribute({
+            userId: userId,
+            userAppId: userAppId,
+            nameAttribute: 'zalo_phone',
+            valueAttribute: phone,
+            botId: botId,
+        }),
+        addOrUpdateAttribute({
+            userId: userId,
+            userAppId: userAppId,
+            nameAttribute: 'zalo_city',
+            valueAttribute: city,
+            botId: botId,
+        }),
+        addOrUpdateAttribute({
+            userId: userId,
+            userAppId: userAppId,
+            nameAttribute: 'zalo_district',
+            valueAttribute: district,
+            botId: botId,
+        }),
+    ]);
+};
+
+const addOrUpdateAttribute = async (data) => {
+    let { userId, nameAttribute, valueAttribute, userAppId, botId } = data;
+    let attributeExists = true;
+    let attr = await AttributeModel.findOneAndUpdate(
+        { user_id: userId, name: nameAttribute },
+        { $set: { value: valueAttribute } },
+    );
+    if (!attr) {
+        await AttributeModel.create({
+            user_id: userId,
+            name: nameAttribute,
+            value: valueAttribute,
+            user_app_id: userAppId,
+            bot_id: botId,
+        });
+        attributeExists = false;
+    }
+    return { attr, attributeExists };
 };
 
 const generatorSession = (senderId) => {
@@ -171,4 +261,6 @@ module.exports = {
     getAllData,
     getDistinNameAttribute,
     countTotalSesions,
+    saveInfoShare,
+    addOrUpdateAttribute,
 };

@@ -30,6 +30,7 @@ const sendMessage = async (data) => {
             user,
             bot,
         });
+        console.log(nextElement);
         let err = [];
         for (let i = 0; i < nextElement.length; i++) {
             let options = fillDataToOption(
@@ -50,8 +51,9 @@ const sendMessage = async (data) => {
             throw err[0];
         }
     } else if (event_name === 'user_submit_info') {
-        const { address, phone, city, district } = info;
-        await saveInfoShare({
+        const { address, phone, city, district, name } = info;
+        await userService.saveInfoShare({
+            name,
             address,
             phone,
             city,
@@ -60,7 +62,7 @@ const sendMessage = async (data) => {
             userAppId: user.user_app_id,
             botId: bot._id,
         });
-        await callApiAppDefault(bot.name, user.user_app_id, MSG_SHARE_INFO);
+        await callApiAppDefault(bot.name, user.user_app_id, MSG_SHARE_INFO, bot.tokenApp);
     } else {
         await BadMessageModel.create({
             user_id: user._id,
@@ -104,41 +106,7 @@ const requestShareInfo = async (data) => {
     await callApiApp(option);
 };
 
-const saveInfoShare = async (data) => {
-    const { address, phone, city, district, userId, userAppId, botId } = data;
-    await Promise.all([
-        addOrUpdateAttribute({
-            userId: userId,
-            userAppId: userAppId,
-            nameAttribute: 'zalo_address',
-            valueAttribute: address,
-            botId: botId,
-        }),
-        addOrUpdateAttribute({
-            userId: userId,
-            userAppId: userAppId,
-            nameAttribute: 'zalo_phone',
-            valueAttribute: phone,
-            botId: botId,
-        }),
-        addOrUpdateAttribute({
-            userId: userId,
-            userAppId: userAppId,
-            nameAttribute: 'zalo_city',
-            valueAttribute: city,
-            botId: botId,
-        }),
-        addOrUpdateAttribute({
-            userId: userId,
-            userAppId: userAppId,
-            nameAttribute: 'zalo_district',
-            valueAttribute: district,
-            botId: botId,
-        }),
-    ]);
-};
-
-const callApiAppDefault = async (botName, userAppId, msg) => {
+const callApiAppDefault = async (botName, userAppId, msg, token) => {
     let options = {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -165,6 +133,7 @@ const getNextElement = async (data) => {
     let currenElementID = null;
 
     let isInSession = verifySesstion(user.current_session);
+    console.log(isInSession);
     if (isInSession) {
         let { element_id } = user;
         if (
@@ -176,7 +145,7 @@ const getNextElement = async (data) => {
             let elements = await getListElementsInBlock(element_id);
             let element = await ElementModel.findById(element_id);
             // lưu giá trị vào trong bảng attribute
-            await addOrUpdateAttribute({
+            await userService.addOrUpdateAttribute({
                 userId: user._id,
                 userAppId: user.user_app_id,
                 nameAttribute: element.attribute,
@@ -289,30 +258,6 @@ const getListElementsInBlock = async (element_id) => {
         .exec();
     if (!block) throw new CustomError(errorCodes.INTERNAL_SERVER_ERROR);
     return block.elements;
-};
-
-/**
- * Cập nhật giá trị mới cho bảng attribute
- * @param {*} data
- */
-const addOrUpdateAttribute = async (data) => {
-    let { userId, nameAttribute, valueAttribute, userAppId, botId } = data;
-    let attributeExists = true;
-    let attr = await AttributeModel.findOneAndUpdate(
-        { user_id: userId, name: nameAttribute },
-        { $set: { value: valueAttribute } },
-    );
-    if (!attr) {
-        await AttributeModel.create({
-            user_id: userId,
-            name: nameAttribute,
-            value: valueAttribute,
-            user_app_id: userAppId,
-            bot_id: botId,
-        });
-        attributeExists = false;
-    }
-    return { attr, attributeExists };
 };
 
 /**
@@ -498,5 +443,5 @@ module.exports = {
     getElement,
     fillDataToOption,
     requestShareInfo,
-    callApiAppDefault
+    callApiAppDefault,
 };
