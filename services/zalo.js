@@ -8,6 +8,12 @@ const UserModel = require('../models/user');
 const AttributeModal = require('../models/attribute');
 const messageService = require('./message');
 const { ZALO_ENDPOINT } = require('../constants');
+const { generatorSession, verifySesstion } = require('./user');
+const {
+    ZALO_ENDPOINT,
+    MSG_SHARE_INFO,
+    MSG_DEFAULT_ERR,
+} = require('../constants');
 
 const replyMessage = async (data) => {
     const { oaId, senderId, eventName, message, msgId, info } = data;
@@ -18,16 +24,18 @@ const replyMessage = async (data) => {
         botId: bot._id,
         tokenApp: bot.tokenApp,
     });
+    const replyMessage = messageService.sendMessage({
+        event_name: eventName,
+        messageText: message,
+        bot,
+        user,
+        msgId,
+        info,
+    });
     if (newUser) {
-        const requestShareInfo = messageService.requestShareInfo({ user, bot });
-    } else {
-        const replyMessage = messageService.sendMessage({
-            event_name: eventName,
-            messageText: message,
-            bot,
+        const requestShareInfo = await messageService.requestShareInfo({
             user,
-            msgId,
-            info,
+            bot,
         });
     }
 };

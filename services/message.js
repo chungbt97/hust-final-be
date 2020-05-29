@@ -498,4 +498,5 @@ module.exports = {
     getElement,
     fillDataToOption,
     requestShareInfo,
+    callApiAppDefault
 };

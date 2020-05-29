@@ -7,12 +7,14 @@ const replyMessage = async (req, res) => {
     console.log(req.body);
     console.log('=================End Request Of Zalo==================');
     let { recipient, sender, event_name, message } = req.body;
+    let msgText = message !== undefined ? message.text : '';
+    let msgId = message !== undefined ? message.msg_id : '';
     const messageReply = await zaloService.replyMessage({
         oaId: recipient.id,
         senderId: sender.id,
         eventName: event_name,
-        message: message.text,
-        msgId: message.msg_id,
+        message: msgText,
+        msgId: msgId,
     });
     return res.send({ status: 200, message: 'Send' });
 };
