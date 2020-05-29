@@ -18,7 +18,7 @@ const {
     MSG_SHARE_INFO,
     MSG_DEFAULT_ERR,
 } = require('../constants');
-const ES_ENDPOINT = 'http://localhost:9200/rules';
+var { ES_ENDPOINT } = require('../constants');
 const urlencode = require('urlencode');
 
 const sendMessage = async (data) => {
@@ -370,7 +370,7 @@ const getBlockFromRuleByMsg = async (message, botId) => {
         }
     });
     //TO DO Check lai ES
-    if (ruleContain.length > 0) {
+    if (ruleContain.length > 1) {
         const blocks = ruleContain[0].blocks;
         const randomNumber = getRandomInt(blocks.length);
         let block = await blocks[randomNumber]
@@ -385,7 +385,7 @@ const getBlockFromRuleByMsg = async (message, botId) => {
         return block;
     } else {
         let encodeMsg = urlencode(message.trim().toLowerCase());
-        const result = await axios.get(`${ES_ENDPOINT}/_search?q=${encodeMsg}`);
+        const result = await axios.get(`${ES_ENDPOINT}/rules/_search?q=${encodeMsg}`);
         let rules = result.data.hits.hits;
         if (rules.length === 0) {
             let block = getDefaultBlockElement(botId, blockCodes.DEFAULT);

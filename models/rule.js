@@ -3,6 +3,7 @@
  * Rule model
  */
 var mongoose = require('mongoose');
+var { ES_ENDPOINT } = require('../constants');
 var mongoosastic = require('mongoosastic');
 var { ObjectId } = mongoose.Types;
 var RuleSchema = new mongoose.Schema(
@@ -21,8 +22,9 @@ var RuleSchema = new mongoose.Schema(
     { timestamps: true },
 );
 RuleSchema.plugin(mongoosastic, {
-    host: 'localhost',
-    port: 9200,
+    host: '203.171.21.21',
+    port: '9200',
+    protocol: 'http',
 });
 var Rule = mongoose.model('Rule', RuleSchema);
 Rule.createMapping((err, mapping) => {
