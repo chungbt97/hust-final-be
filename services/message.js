@@ -370,7 +370,7 @@ const getBlockFromRuleByMsg = async (message, botId) => {
         }
     });
     //TO DO Check lai ES
-    if (ruleContain.length > 1) {
+    if (ruleContain.length > 0) {
         const blocks = ruleContain[0].blocks;
         const randomNumber = getRandomInt(blocks.length);
         let block = await blocks[randomNumber]
