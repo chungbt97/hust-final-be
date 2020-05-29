@@ -30,7 +30,6 @@ const sendMessage = async (data) => {
             user,
             bot,
         });
-        console.log(nextElement);
         let err = [];
         for (let i = 0; i < nextElement.length; i++) {
             let options = fillDataToOption(
@@ -143,7 +142,6 @@ const getNextElement = async (data) => {
     let currenElementID = null;
 
     let isInSession = verifySesstion(user.current_session);
-    console.log(isInSession);
     if (isInSession) {
         let { element_id } = user;
         if (
@@ -208,7 +206,11 @@ const getNextElement = async (data) => {
             bot._id,
             blockCodes.WELCOME,
         );
+        console.log('=================209===================');
+        console.log(welcomeBlock);
         let dataResult = getElement(welcomeBlock);
+        console.log('=================213===================');
+        console.log(dataResult);
         nextElementArr = dataResult.arrReturn;
         currenElementID = dataResult.idReturn;
         // create session

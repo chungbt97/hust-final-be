@@ -1,11 +1,11 @@
-const createDefaultBlock = (groupId) => {
+const createDefaultBlock = () => {
     return [
         {
-            name: 'Wellcome Message ' + groupId,
+            name: 'Wellcome Message ',
             group_id: groupId,
         },
         {
-            name: 'Error Message ' + groupId,
+            name: 'Error Message ',
             group_id: groupId,
         },
     ];
