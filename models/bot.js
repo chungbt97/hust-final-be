@@ -19,7 +19,7 @@ var BotSchema = new mongoose.Schema(
         tokenApp: { type: String, trim: true },
         user_id: { type: ObjectId, ref: 'Account' },
         avatar: { type: String, trim: true },
-        cover: { type: String, trim: true },
+        cover: { type: String },
         deleteFlag: { type: Boolean, default: false },
     },
     { timestamps: true },

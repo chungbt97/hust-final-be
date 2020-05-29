@@ -124,7 +124,6 @@ const uploadImage = (processedFile) => {
     const fullPathInServ = processedFile.path; // Đường dẫn đầy đủ của file vừa đc upload lên server
     // Đổi tên của file vừa upload lên, vì multer đang đặt default ko có đuôi file
     let newFullPath = `${fullPathInServ}-${orgName}`;
-    console.log()
     fs.renameSync(fullPathInServ, newFullPath);
     return newFullPath;
 };
