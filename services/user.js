@@ -116,22 +116,29 @@ const saveInfoShare = async (data) => {
 
 const addOrUpdateAttribute = async (data) => {
     let { userId, nameAttribute, valueAttribute, userAppId, botId } = data;
-    let attributeExists = true;
-    let attr = await AttributeModel.findOneAndUpdate(
-        { user_id: userId, name: nameAttribute },
-        { $set: { value: valueAttribute } },
-    );
-    if (!attr) {
-        await AttributeModel.create({
-            user_id: userId,
-            name: nameAttribute,
-            value: valueAttribute,
-            user_app_id: userAppId,
-            bot_id: botId,
-        });
-        attributeExists = false;
+    if (
+        valueAttribute !== undefined &&
+        valueAttribute !== null &&
+        valueAttribute !== ''
+    ) {
+        let attributeExists = true;
+        let attr = await AttributeModel.findOneAndUpdate(
+            { user_id: userId, name: nameAttribute },
+            { $set: { value: valueAttribute } },
+        );
+        if (!attr) {
+            await AttributeModel.create({
+                user_id: userId,
+                name: nameAttribute,
+                value: valueAttribute,
+                user_app_id: userAppId,
+                bot_id: botId,
+            });
+            attributeExists = false;
+        }
+        return { attr, attributeExists };
     }
-    return { attr, attributeExists };
+    return null;
 };
 
 const generatorSession = (senderId) => {
