@@ -35,8 +35,8 @@ const replyMessage = async (data) => {
 const getDataOfOa = async (data) => {
     const { access_token, oaId } = data;
     const oa = await callApiGetOa(access_token);
-    const { description, name, avatar } = oa;
-    return { description, name, avatar, tokenApp: access_token, oaId };
+    const { description, name, avatar, cover } = oa;
+    return { description, name, avatar, tokenApp: access_token, oaId, cover };
 };
 
 const callApiGetOa = async (token) => {
