@@ -206,11 +206,7 @@ const getNextElement = async (data) => {
             bot._id,
             blockCodes.WELCOME,
         );
-        console.log('=================209===================');
-        console.log(welcomeBlock);
         let dataResult = getElement(welcomeBlock);
-        console.log('=================213===================');
-        console.log(dataResult);
         nextElementArr = dataResult.arrReturn;
         currenElementID = dataResult.idReturn;
         // create session
