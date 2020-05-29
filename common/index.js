@@ -1,4 +1,4 @@
-const createDefaultBlock = () => {
+const createDefaultBlock = (groupId) => {
     return [
         {
             name: 'Wellcome Message ',

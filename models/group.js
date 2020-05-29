@@ -24,7 +24,7 @@ var GroupSchema = new mongoose.Schema(
 
 GroupSchema.pre('save', async function (next) {
     if (this.defaultGroup) {
-        let arrBlock = commonMethod.createDefaultBlock();
+        let arrBlock = commonMethod.createDefaultBlock(this._id);
         let defaultBlock = await BlockModel.create(arrBlock);
         if (!defaultBlock)
             throw new CustomError(errorCodes.INTERNAL_SERVER_ERROR);
