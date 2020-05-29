@@ -7,7 +7,6 @@ const BlockModel = require('../models/block');
 const UserModel = require('../models/user');
 const AttributeModal = require('../models/attribute');
 const messageService = require('./message');
-const { ZALO_ENDPOINT } = require('../constants');
 const { generatorSession, verifySesstion } = require('./user');
 const {
     ZALO_ENDPOINT,
