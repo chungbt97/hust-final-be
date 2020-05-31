@@ -17,12 +17,13 @@ const getRule = async (req, res) => {
 
 const addRule = async (req, res) => {
     const { botId } = req.params;
-    const { keyword, blocks, texts } = req.body;
+    const { keyword, blocks, texts, name } = req.body;
     const rule = await RuleService.addNewRuleForBot({
         botId,
         keyword,
         blocks,
         texts,
+        name
     });
     return res.send({
         status: 201,
@@ -33,13 +34,14 @@ const addRule = async (req, res) => {
 
 const updateRule = async (req, res) => {
     const { botId, ruleId } = req.params;
-    const { keyword, blocks, texts } = req.body;
+    const { keyword, blocks, texts, name } = req.body;
     const rule = await RuleService.updateRuleOfBot({
         botId,
         keyword,
         blocks,
         texts,
         ruleId,
+        name
     });
     return res.send({
         status: 200,

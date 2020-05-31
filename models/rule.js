@@ -16,7 +16,7 @@ var RuleSchema = new mongoose.Schema(
         },
         blocks: [{ type: ObjectId, ref: 'Block' }],
         bot_id: { type: ObjectId, ref: 'Bot', es_indexed: true },
-        texts: [{ type: String }],
+        name: [{ type: String, require: true}],
         deleteFlag: { type: Boolean, default: false, es_indexed: true },
     },
     { timestamps: true },

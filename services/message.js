@@ -370,7 +370,7 @@ const getBlockFromRuleByMsg = async (message, botId) => {
         }
     });
     //TO DO Check lai ES
-    if (ruleContain.length > 0) {
+    if (ruleContain.length === 1) {
         const blocks = ruleContain[0].blocks;
         const randomNumber = getRandomInt(blocks.length);
         let block = await blocks[randomNumber]
@@ -385,7 +385,9 @@ const getBlockFromRuleByMsg = async (message, botId) => {
         return block;
     } else {
         let encodeMsg = urlencode(message.trim().toLowerCase());
-        const result = await axios.get(`${ES_ENDPOINT}/rules/_search?q=${encodeMsg}`);
+        const result = await axios.get(
+            `${ES_ENDPOINT}/rules/_search?q=${encodeMsg}`,
+        );
         let rules = result.data.hits.hits;
         if (rules.length === 0) {
             let block = getDefaultBlockElement(botId, blockCodes.DEFAULT);
@@ -407,7 +409,7 @@ const getBlockFromRuleByMsg = async (message, botId) => {
 const getRuleContain = (ruleContain, rules) => {
     for (let i = 0; i < rules.length; i++) {
         for (let j = 0; j < ruleContain.length; j++) {
-            if (rules[i]._id === ruleContain[j]._id.toString()) {
+            if (rules[i]._id.toString() === ruleContain[j]._id.toString()) {
                 return ruleContain[j];
             }
         }
@@ -439,9 +441,9 @@ const getRuleByElasticSearch = async (message, botId) => {
                     match: { deleteFlag: false },
                 })
                 .execPopulate();
+        } else {
+            block = getDefaultBlockElement(botId, blockCodes.DEFAULT);
         }
-    } else {
-        block = getDefaultBlockElement(botId, blockCodes.DEFAULT);
     }
     return block;
 };

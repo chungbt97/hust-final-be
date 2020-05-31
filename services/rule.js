@@ -26,10 +26,11 @@ const getAllRulesOfBot = async (data) => {
 };
 
 const addNewRuleForBot = async (data) => {
-    const { botId, keyword, blocks } = data;
+    const { botId, keyword, blocks, name } = data;
     const bot = await BotModel.findOne({ _id: botId, deleteFlag: false });
     if (!bot) throw new CustomError(errorCodes.BAD_REQUEST);
     let ruleModel = new RuleModel({
+        name,
         keyword,
         blocks,
         bot_id: botId,
@@ -52,12 +53,13 @@ const addNewRuleForBot = async (data) => {
 };
 
 const updateRuleOfBot = async (data) => {
-    const { botId, keyword, blocks, ruleId } = data;
+    const { botId, keyword, blocks, ruleId, name } = data;
     const bot = await BotModel.findOne({ _id: botId, deleteFlag: false });
     if (!bot) throw new CustomError(errorCodes.BAD_REQUEST);
     let rule = await RuleModel.findOneAndUpdate(
         { _id: ruleId, deleteFlag: false },
         {
+            name,
             keyword,
             blocks,
         },
