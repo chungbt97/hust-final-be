@@ -418,8 +418,9 @@ const getRuleContain = (ruleContain, rules) => {
 };
 
 const getRuleByElasticSearch = async (message, botId) => {
-    let encodeMsg = urlencode(message.trim().toLowerCase());
-
+    let msg = message.trim().toLowerCase();
+    let query = `+keyword:(${msg}) +bot_id:(${botId}) `
+    let encodeMsg = urlencode(query);
     const result = await axios.get(`${ES_ENDPOINT}/_search?q=${encodeMsg}`);
     const rawRule = result.data.hits.hits[0];
     let block = null;
