@@ -422,9 +422,9 @@ const getRuleByElasticSearch = async (message, botId) => {
     let query = `+keyword:(${msg}) +bot_id:(${botId}) `
     let encodeMsg = urlencode(query);
     const result = await axios.get(`${ES_ENDPOINT}/_search?q=${encodeMsg}`);
-    const rawRule = result.data.hits.hits[0];
     let block = null;
-    if (rawRule !== null && rawRule !== undefined) {
+    if (result.data.hits.hits.length > 0) {
+        const rawRule = result.data.hits.hits[0];
         const rule = await RuleModel.findOne({
             _id: rawRule._id,
             bot_id: botId,
@@ -445,6 +445,8 @@ const getRuleByElasticSearch = async (message, botId) => {
         } else {
             block = getDefaultBlockElement(botId, blockCodes.DEFAULT);
         }
+    } else {
+        block = getDefaultBlockElement(botId, blockCodes.DEFAULT);
     }
     return block;
 };
