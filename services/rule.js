@@ -37,7 +37,6 @@ const addNewRuleForBot = async (data) => {
     });
     let rule = await ruleModel.save();
     await ruleModel.on('es-indexed', (err, result) => {
-        console.log('indexed to elastic search');
         if (err) {
             console.log(err);
         }

@@ -3,9 +3,6 @@ const botService = require('../services/bot');
 var { CLIENT_ENDPOINT } = require('../constants');
 
 const replyMessage = async (req, res) => {
-    console.log('====================================');
-    console.log(req.body);
-    console.log('====================================');
     let { recipient, sender, event_name, message, info } = req.body;
     let msgText = message !== undefined ? message.text : '';
     let msgId = message !== undefined ? message.msg_id : '';

@@ -29,9 +29,6 @@ const getAllBot = async (id) => {
 
 const addNewBot = async (data) => {
     const { description, name, avatar, tokenApp, oaId, cover } = data;
-    console.log('====================================');
-    console.log(data)
-    console.log('====================================');
     let bot = await BotModel.findOneAndUpdate(
         { oa_id: oaId, deleteFlag: false },
         {
