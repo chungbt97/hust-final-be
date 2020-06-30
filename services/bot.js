@@ -29,24 +29,35 @@ const getAllBot = async (id) => {
 
 const addNewBot = async (data) => {
     const { description, name, avatar, tokenApp, oaId, cover } = data;
-    let bot = await BotModel.findOne({ oa_id: oaId, deleteFlag: false });
-    if (bot) throw new CustomError(errorCodes.OA_EXISTS);
-    let newBot = await BotModel.create({
-        name,
-        description,
-        oa_id: oaId,
-        tokenApp,
-        avatar,
-        cover,
-    });
-    if (newBot) {
-        await GroupModel.create({
-            name: 'Default Group',
-            defaultGroup: true,
-            bot_id: newBot._id,
+    let bot = await BotModel.findOneAndUpdate(
+        { oa_id: oaId, deleteFlag: false },
+        {
+            name,
+            description,
+            tokenApp,
+            avatar,
+            cover,
+        },
+    );
+    if (!bot) {
+        let newBot = await BotModel.create({
+            name,
+            description,
+            oa_id: oaId,
+            tokenApp,
+            avatar,
+            cover,
         });
+        if (newBot) {
+            await GroupModel.create({
+                name: 'Default Group',
+                defaultGroup: true,
+                bot_id: newBot._id,
+            });
+        }
+        return newBot;
     }
-    return newBot;
+    return bot;
 };
 
 const updateBot = async (data) => {
@@ -93,8 +104,6 @@ const updateUserForNewBot = async (data) => {
             new: true,
         },
     );
-
-    if (!botEdit) throw new CustomError(errorCodes.BAD_REQUEST);
     return botEdit;
 };
 

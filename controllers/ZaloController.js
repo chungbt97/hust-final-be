@@ -24,6 +24,7 @@ const connectOfficalAccount = async (req, res) => {
     const { access_token, oaId } = req.query;
     const newOa = await zaloService.getDataOfOa({ access_token, oaId });
     const newBot = await botService.addNewBot(newOa);
+    console.log(newBot);
     res.redirect(`${CLIENT_ENDPOINT}/home/${newBot._id}`);
 };
 module.exports = {
