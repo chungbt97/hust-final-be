@@ -1,11 +1,11 @@
 const createDefaultBlock = (groupId) => {
     return [
         {
-            name: 'Wellcome Message ',
+            name: 'Xin chào mặc định',
             group_id: groupId,
         },
         {
-            name: 'Error Message ',
+            name: 'Lỗi mặc định ',
             group_id: groupId,
         },
     ];
