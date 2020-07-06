@@ -21,7 +21,7 @@ function validateAction(action) {
                     .exists()
                     .withMessage(`${fieldName.Email} is required`)
                     .isEmail()
-                    .withMessage('Email không hợp lên')
+                    .withMessage('Email không hợp lệ')
                     .isString()
                     .trim(),
                 body('password')
@@ -58,7 +58,7 @@ function validateAction(action) {
             ];
         }
         case actionTypes.GET_DATA_BOT: {
-            return [param('botId').exists().withMessage(`Thông tin Bot yêu cầu không hợp lên`)];
+            return [param('botId').exists().withMessage(`Thông tin Bot yêu cầu không hợp lệ`)];
         }
         case actionTypes.DELETE_BOT: {
             return param('botId').exists().withMessage('Thông tin bot yêu cầu không đúng');
